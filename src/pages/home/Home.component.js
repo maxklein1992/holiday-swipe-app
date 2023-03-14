@@ -47,7 +47,7 @@ const Home = ({
           <h1 className={styles.swipeOverviewHeader}>New travels</h1>
           <p>You have not yet swiped through destinations yet! </p>
           <button className={styles.newSwipeButton}>
-            Find new destination
+            Find new destination now
           </button>
         </div>
       </div>
