@@ -1,0 +1,29 @@
+.component {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcomeMessageContainer {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.swipeOverviewHeader {
+  margin-bottom: 40px;
+}
+
+.newSwipeButton {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  background-color: #9fe870;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  margin-top: 25px;
+
+  &:hover {
+    background-color: #80e142;
+  }
+}
