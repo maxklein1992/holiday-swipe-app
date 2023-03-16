@@ -66,7 +66,7 @@ export const signIn = () => async (dispatch) => {
 
     const userCount = snapshot._data.value.mapValue.fields.count.integerValue;
 
-    if (userCount === 0) {
+    if (userCount == 0) {
       await addDoc(collectionRef, {
         id: userInfo.id,
         email: userInfo.email,
