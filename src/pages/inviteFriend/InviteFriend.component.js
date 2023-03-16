@@ -23,7 +23,7 @@ const InviteFriend = ({ isAuthenticated }) => {
   return (
     <div className={styles.component}>
       <div className={styles.headerContainer}>
-        <h1>Invite your friend</h1>
+        <h1>Invite your travel buddy</h1>
       </div>
       <input
         className={styles.input}
