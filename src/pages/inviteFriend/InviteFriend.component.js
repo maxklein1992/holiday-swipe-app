@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
 
+import * as gameActions from "../../redux/actions/game";
 import styles from "./InviteFriend.module.scss";
 import { login, dashboard } from "../../constants/paths";
 
@@ -43,6 +44,11 @@ const InviteFriend = ({ isAuthenticated }) => {
   );
 };
 
-export default connect((state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-}))(InviteFriend);
+export default connect(
+  (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+  }),
+  (dispatch) => ({
+    createGame: (email) => dispatch(gameActions.createGame(email)),
+  })
+)(InviteFriend);

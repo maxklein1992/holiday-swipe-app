@@ -5,7 +5,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 import * as userActions from "../../redux/actions/user";
 import styles from "./Home.module.scss";
-import { login, createJourney } from "../../constants/paths";
+import { login, createGame } from "../../constants/paths";
 
 const Home = ({
   signOut,
@@ -33,7 +33,7 @@ const Home = ({
           <p>You have not yet swiped through destinations yet! </p>
           <button
             className={styles.newSwipeButton}
-            onClick={() => navigate(createJourney, { replace: true })}
+            onClick={() => navigate(createGame, { replace: true })}
           >
             Find new destination now
           </button>

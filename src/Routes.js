@@ -3,17 +3,12 @@ import { Router, BrowserRouter, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector, connect } from "react-redux";
 import BeatLoader from "react-spinners/BeatLoader";
 
-import {
-  createJourney,
-  dashboard,
-  login,
-  inviteFriend,
-} from "./constants/paths";
+import { createGame, dashboard, login, inviteFriend } from "./constants/paths";
 import * as userActions from "./redux/actions/user";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import InviteFriend from "./pages/inviteFriend";
-import CreateJourney from "./pages/createJourney";
+import CreateGame from "./pages/createGame";
 import { refresh } from "./redux/actions/auth";
 
 const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
@@ -49,7 +44,7 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
       <Routes>
         <Route path={dashboard} element={<Home />} />
         <Route path={login} element={<Login />} />
-        <Route path={createJourney} element={<CreateJourney />} />
+        <Route path={createGame} element={<CreateGame />} />
         <Route path={inviteFriend} element={<InviteFriend />} />
       </Routes>
     </BrowserRouter>

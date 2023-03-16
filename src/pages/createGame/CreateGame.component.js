@@ -2,10 +2,10 @@ import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
 
-import styles from "./CreateJourney.module.scss";
+import styles from "./CreateGame.module.scss";
 import { login, inviteFriend } from "../../constants/paths";
 
-const CreateJourney = ({ isAuthenticated }) => {
+const CreateGame = ({ isAuthenticated }) => {
   const navigate = useNavigate();
 
   if (isAuthenticated === false) {
@@ -55,4 +55,4 @@ const CreateJourney = ({ isAuthenticated }) => {
 
 export default connect((state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-}))(CreateJourney);
+}))(CreateGame);
