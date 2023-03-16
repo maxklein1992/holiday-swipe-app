@@ -5,6 +5,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 import * as userActions from "../../redux/actions/user";
 import styles from "./Home.module.scss";
+import { login, createJourney } from "../../constants/paths";
 
 const Home = ({
   signOut,
@@ -15,27 +16,11 @@ const Home = ({
 }) => {
   const [userInfoLoading, setUserInfoLoading] = React.useState(true);
 
-  React.useEffect(() => {
-    if (isAuthenticated)
-      (async () => {
-        try {
-          setUserInfoLoading(true);
-          const response = await fetchUserdata();
-          if (response && response.personal_data) {
-            setUserInfoLoading(false);
-          }
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.log(error);
-        }
-      })();
-  }, [isAuthenticated]);
+  const navigate = useNavigate();
 
   if (isAuthenticated === false && authLoading === false) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to={login} replace />;
   }
-
-  if (authLoading || userInfoLoading) return <BeatLoader color="#367fd6" />;
 
   return (
     isAuthenticated === true && (
@@ -46,7 +31,10 @@ const Home = ({
         <div className={styles.swipeOverviewContainer}>
           <h1 className={styles.swipeOverviewHeader}>New travels</h1>
           <p>You have not yet swiped through destinations yet! </p>
-          <button className={styles.newSwipeButton}>
+          <button
+            className={styles.newSwipeButton}
+            onClick={() => navigate(createJourney, { replace: true })}
+          >
             Find new destination now
           </button>
         </div>

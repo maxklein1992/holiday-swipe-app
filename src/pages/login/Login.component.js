@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { dashboard } from "../../constants/paths";
 import styles from "./Login.module.scss";
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   React.useEffect(() => {
-    if (isAuthenticated) navigate("/dashboard");
+    if (isAuthenticated) navigate(dashboard);
   }, [isAuthenticated]);
 
   return (

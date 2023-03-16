@@ -1,5 +1,6 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
+import { dashboard, login } from "../../constants/paths";
 
 import * as authActions from "../../redux/actions/auth";
 import styles from "./Header.module.scss";
@@ -9,7 +10,9 @@ const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
 
   return (
     <div className={styles.component}>
-      <h1 className={styles.logo}>Holiday Swipe</h1>
+      <a className={styles.logo} href={isAuthenticated ? dashboard : login}>
+        Holiday Swipe
+      </a>
       {!isAuthenticated && (
         <div className={styles.loginContainer}>
           <button
