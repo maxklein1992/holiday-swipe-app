@@ -3,8 +3,8 @@ import React from "react";
 import styles from "./JourneyCard.module.scss";
 
 const JourneyCard = ({ onClick, image, title, disabled }) => {
-  //defensive
-  if (!title || !image) return;
+  // Defensive
+  if (!title || !image) return null;
 
   return (
     <button

@@ -10,22 +10,10 @@
   margin-bottom: pxToRem(100);
 }
 
-.swipeOverviewHeader {
+.newGameHeader {
   margin-bottom: pxToRem(40);
 }
 
-.newSwipeButton {
-  display: flex;
-  padding: 10px 20px;
-  align-items: center;
-  background-color: var(--primaryColorLightGreen);
-  cursor: pointer;
-  font-weight: bold;
-  font-size: pxToRem(16);
-  color: black;
+.button {
   margin-top: pxToRem(25);
-
-  &:hover {
-    background-color: var(--secondaryColorLightGreen);
-  }
 }

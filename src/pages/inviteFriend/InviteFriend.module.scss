@@ -21,30 +21,5 @@
   border: 1px solid var(--primaryColorGray);
   font-size: pxToRem(16);
   border-radius: 8px;
-}
-
-.button {
-  display: flex;
-  margin-top: pxToRem(70);
-  padding: 14px 26px;
-  align-items: center;
-  background-color: var(--primaryColorLightGreen);
-  cursor: pointer;
-  font-weight: bold;
-  font-size: pxToRem(20);
-  color: black;
-  width: max-content;
-
-  &:hover {
-    background-color: var(--secondaryColorLightGreen);
-  }
-}
-
-.disabled {
-  color: var(--primaryColorWhite);
-  background-color: var(--secondaryColorLightGray);
-
-  &:hover {
-    background-color: var(--secondaryColorLightGray);
-  }
+  margin-bottom: pxToRem(70);
 }

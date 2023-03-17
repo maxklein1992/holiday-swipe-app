@@ -1,0 +1,44 @@
+/* Default styling */
+.button {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--primaryColorBlack);
+}
+
+/* Background variants */
+.primary {
+  background-color: var(--primaryColorLightGreen);
+
+  &:hover {
+    background-color: var(--secondaryColorLightGreen);
+  }
+}
+
+.primary-inverted {
+  color: var(--primaryColorWhite);
+  color: "red";
+}
+
+/* Disabled states */
+:disabled {
+  cursor: unset;
+}
+
+.primary:disabled {
+  color: var(--primaryColorWhite);
+  background-color: var(--secondaryColorLightGray);
+
+  &:hover {
+    background-color: var(--secondaryColorLightGray);
+  }
+}
+
+/* Size variants */
+.big {
+  padding: 20px 40px;
+}

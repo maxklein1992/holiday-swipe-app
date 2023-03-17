@@ -1,7 +1,8 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { dashboard, login } from "../../constants/paths";
 
+import { dashboard, login } from "../../constants/paths";
+import Button from "../../elements/button";
 import * as authActions from "../../redux/actions/auth";
 import styles from "./Header.module.scss";
 
@@ -15,23 +16,17 @@ const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
       </a>
       {!isAuthenticated && (
         <div className={styles.loginContainer}>
-          <button
-            className={styles.loginButton}
-            onClick={() => dispatch(signIn())}
-          >
+          <Button onClick={() => dispatch(signIn())} variant="primary-inverted">
             Log in
-          </button>
+          </Button>
         </div>
       )}
       {isAuthenticated && userInfo && (
         <div className={styles.logoutContainer}>
           <p className={styles.userName}>{userInfo.full_name}</p>
-          <button
-            className={styles.logoutButton}
-            onClick={() => dispatch(signOut())}
-          >
-            Sign out
-          </button>
+          <Button onClick={() => dispatch(signOut())} variant="primary">
+            Log out
+          </Button>
         </div>
       )}
     </div>

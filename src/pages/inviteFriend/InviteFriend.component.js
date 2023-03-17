@@ -5,6 +5,7 @@ import { connect, useDispatch, useSelector } from "react-redux";
 import * as gameActions from "../../redux/actions/game";
 import styles from "./InviteFriend.module.scss";
 import { login, dashboard } from "../../constants/paths";
+import Button from "../../elements/button";
 
 const InviteFriend = ({ isAuthenticated }) => {
   const navigate = useNavigate();
@@ -33,13 +34,14 @@ const InviteFriend = ({ isAuthenticated }) => {
         placeholder="Email address"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button
-        className={[styles.button, !email && styles.disabled].join(" ")}
+      <Button
         onClick={() => onSubmit()}
+        variant="primary"
         disabled={!email}
+        size="big"
       >
         Confirm
-      </button>
+      </Button>
     </div>
   );
 };
