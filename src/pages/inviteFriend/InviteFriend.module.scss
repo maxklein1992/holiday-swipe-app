@@ -14,12 +14,6 @@
 }
 
 .input {
-  width: pxToRem(500);
   margin-top: pxToRem(70);
-  padding: 22px 20px;
-  display: inline-block;
-  border: 1px solid var(--primaryColorGray);
-  font-size: pxToRem(16);
-  border-radius: 8px;
   margin-bottom: pxToRem(70);
 }

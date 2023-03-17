@@ -17,7 +17,7 @@ const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
       {!isAuthenticated && (
         <div className={styles.loginContainer}>
           <Button onClick={() => dispatch(signIn())} variant="primary-inverted">
-            Log in
+            Sign up / Log in
           </Button>
         </div>
       )}

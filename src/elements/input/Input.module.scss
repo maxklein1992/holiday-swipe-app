@@ -1,0 +1,10 @@
+@import "../../styles/pxToRem";
+
+.input {
+  width: pxToRem(500);
+  padding: 22px 20px;
+  display: inline-block;
+  border: 1px solid var(--primaryColorGray);
+  font-size: pxToRem(16);
+  border-radius: 8px;
+}
