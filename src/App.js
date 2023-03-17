@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 
-import Routes from "./Routes";
+import Routing from "./Routing";
 import Layout from "./components/layout";
 import store from "./redux/store";
 import "./App.scss";
@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Layout>
-        <Routes />
+        <Routing />
       </Layout>
     </Provider>
   );
