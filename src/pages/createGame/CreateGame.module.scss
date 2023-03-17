@@ -1,3 +1,5 @@
+@import "../../styles/pxToRem";
+
 .component {
   display: flex;
   flex-direction: column;
@@ -6,14 +8,14 @@
 .headerContainer {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: pxToRem(50);
 }
 
 .journeyTypesContainer {
   display: flex;
   flex-direction: row;
-  margin-top: 100px;
+  margin-top: pxToRem(100);
   width: 100%;
   justify-content: flex-start;
-  column-gap: 40px;
+  column-gap: pxToRem(40);
 }

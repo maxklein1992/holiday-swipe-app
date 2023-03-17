@@ -1,3 +1,5 @@
+@import "../../styles/pxToRem";
+
 .component {
   display: flex;
   flex-direction: column;
@@ -6,35 +8,35 @@
 .headerComponent {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: pxToRem(30);
   flex: 1;
   justify-content: center;
   align-items: center;
 }
 
 .headerTitle {
-  font-size: 52px;
+  font-size: pxToRem(52);
 }
 
 .subTitle {
-  margin-top: 22px;
+  margin-top: pxToRem(22);
   text-align: center;
-  width: 640px;
-  font-size: 22px;
-  color: #003b95;
+  width: pxToRem(640);
+  font-size: pxToRem(22);
+  color: var(--primaryColorBlue);
 }
 
 .journeyTypesComponent {
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  margin-top: pxToRem(80);
   flex: 1;
   justify-content: center;
 }
 
 .journeyTypesTitle {
-  font-size: 24px;
-  margin-bottom: 30px;
+  font-size: pxToRem(24);
+  margin-bottom: pxToRem(30);
 }
 
 .journeyTypesList {
@@ -42,5 +44,5 @@
   flex-direction: row;
   width: 100%;
   justify-content: center;
-  column-gap: 40px;
+  column-gap: pxToRem(40);
 }

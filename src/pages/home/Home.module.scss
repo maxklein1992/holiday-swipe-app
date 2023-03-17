@@ -1,3 +1,5 @@
+@import "../../styles/pxToRem";
+
 .component {
   display: flex;
   flex-direction: column;
@@ -5,11 +7,11 @@
 
 .welcomeMessageContainer {
   display: flex;
-  margin-bottom: 100px;
+  margin-bottom: pxToRem(100);
 }
 
 .swipeOverviewHeader {
-  margin-bottom: 40px;
+  margin-bottom: pxToRem(40);
 }
 
 .newSwipeButton {
@@ -19,9 +21,9 @@
   background-color: var(--primaryColorLightGreen);
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: pxToRem(16);
   color: black;
-  margin-top: 25px;
+  margin-top: pxToRem(25);
 
   &:hover {
     background-color: var(--secondaryColorLightGreen);
