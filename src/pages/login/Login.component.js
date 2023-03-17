@@ -1,11 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { dashboard } from "../../constants/paths";
+import JourneyCard from "../../components/journeyCard";
+import { inviteFriend } from "../../constants/paths";
 import styles from "./Login.module.scss";
+import { signIn } from "../../redux/actions/auth";
+import * as authActions from "../../redux/actions/auth";
 
-const Login = () => {
+const Login = ({ signIn }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,8 +30,23 @@ const Login = () => {
           family member
         </h1>
       </div>
+      <div className={styles.journeyTypesComponent}>
+        <h1 className={styles.journeyTypesTitle}>
+          Choose your type of holiday
+        </h1>
+        <JourneyCard
+          image="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
+          title="Places in Portugal"
+          disabled
+        />
+      </div>
     </div>
   );
 };
 
-export default Login;
+export default connect(
+  (state) => ({}),
+  (dispatch) => ({
+    signIn: () => dispatch(authActions.signIn()),
+  })
+)(Login);

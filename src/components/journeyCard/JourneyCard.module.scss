@@ -1,0 +1,34 @@
+.journeyTypeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--primaryColorWhite);
+  padding: 40px;
+  width: max-content;
+  border: 2px solid var(--secondaryColorLightGray);
+  border-radius: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--primaryColorLightGray);
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  object-fit: contain;
+  height: 75px;
+}
+
+.journeyTypeTitle {
+  font-weight: bold;
+  margin-top: 40px;
+  color: var(--primaryColorBlack);
+  font-size: 16px;
+}
