@@ -16,7 +16,7 @@
   display: flex;
   padding: 10px 20px;
   align-items: center;
-  background-color: #9fe870;
+  background-color: var(--primaryColorLightGreen);
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
@@ -24,6 +24,6 @@
   margin-top: 25px;
 
   &:hover {
-    background-color: #80e142;
+    background-color: var(--secondaryColorLightGreen);
   }
 }

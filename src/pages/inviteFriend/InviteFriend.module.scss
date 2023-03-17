@@ -16,7 +16,7 @@
   margin-top: 70px;
   padding: 22px 20px;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primaryColorGray);
   font-size: 16px;
   border-radius: 8px;
 }
@@ -26,7 +26,7 @@
   margin-top: 70px;
   padding: 14px 26px;
   align-items: center;
-  background-color: #9fe870;
+  background-color: var(--primaryColorLightGreen);
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
@@ -34,15 +34,15 @@
   width: max-content;
 
   &:hover {
-    background-color: #80e142;
+    background-color: var(--secondaryColorLightGreen);
   }
 }
 
 .disabled {
-  color: white;
-  background-color: lightgray;
+  color: var(--primaryColorWhite);
+  background-color: var(--secondaryColorLightGray);
 
   &:hover {
-    background-color: lightgray;
+    background-color: var(--secondaryColorLightGray);
   }
 }

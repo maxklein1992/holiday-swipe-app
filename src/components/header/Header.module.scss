@@ -1,7 +1,7 @@
 .component {
   display: flex;
   flex: 1;
-  background-color: #003b95;
+  background-color: var(--primaryColorBlue);
   padding: 20px 20%;
   justify-content: space-between;
   margin-bottom: 50px;
@@ -12,7 +12,7 @@
   font-weight: bold;
   font-size: 30px;
   text-decoration: none;
-  color: white;
+  color: var(--primaryColorWhite);
 }
 
 .loginContainer {
@@ -21,7 +21,7 @@
 }
 
 .loginButton {
-  color: white;
+  color: var(--primaryColorWhite);
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
@@ -36,7 +36,7 @@
 }
 
 .userName {
-  color: white;
+  color: var(--primaryColorWhite);
   font-weight: bold;
   font-size: 14px;
 }
@@ -45,13 +45,13 @@
   display: flex;
   padding: 10px 20px;
   align-items: center;
-  background-color: #9fe870;
+  background-color: var(--primaryColorLightGreen);
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
-  color: black;
+  color: var(--primaryColorBlack);
 
   &:hover {
-    background-color: #80e142;
+    background-color: var(--secondaryColorLightGreen);
   }
 }

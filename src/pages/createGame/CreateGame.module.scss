@@ -21,15 +21,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--primaryColorWhite);
   padding: 40px;
   width: max-content;
-  border: 2px solid lightgray;
+  border: 2px solid var(--primaryColorLightGray);
   border-radius: 16px;
   cursor: pointer;
 
   &:hover {
-    background-color: #f7f7f7;
+    background-color: var(--primaryColorLightGray);
   }
 }
 
@@ -47,6 +47,6 @@
 .journeyTypeTitle {
   font-weight: bold;
   margin-top: 40px;
-  color: black;
+  color: var(--primaryColorBlack);
   font-size: 16px;
 }
