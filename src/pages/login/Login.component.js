@@ -34,11 +34,23 @@ const Login = ({ signIn }) => {
         <h1 className={styles.journeyTypesTitle}>
           Choose your type of holiday
         </h1>
-        <JourneyCard
-          image="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
-          title="Places in Portugal"
-          disabled
-        />
+        <div className={styles.journeyTypesList}>
+          <JourneyCard
+            image="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
+            title="Places in Portugal"
+            disabled
+          />
+          <JourneyCard
+            image="https://cdn-icons-png.flaticon.com/512/197/197615.png"
+            title="Countries in Europe"
+            disabled
+          />
+          <JourneyCard
+            image="https://d35aaqx5ub95lt.cloudfront.net/images/userMotivationSurvey/fbcf7ddad59a2c199b2e5e0b5dc4f601.svg"
+            title="Countries Worldwide"
+            disabled
+          />
+        </div>
       </div>
     </div>
   );

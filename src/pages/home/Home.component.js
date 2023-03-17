@@ -14,8 +14,6 @@ const Home = ({
   authLoading,
   userInfo,
 }) => {
-  const [userInfoLoading, setUserInfoLoading] = React.useState(true);
-
   const navigate = useNavigate();
 
   if (isAuthenticated === false && authLoading === false) {

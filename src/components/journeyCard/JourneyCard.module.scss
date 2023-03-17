@@ -4,14 +4,23 @@
   align-items: center;
   flex-direction: column;
   background-color: var(--primaryColorWhite);
-  padding: 40px;
-  width: max-content;
+  width: 220px;
+  height: 220px;
+  //padding: 40px;
   border: 2px solid var(--secondaryColorLightGray);
   border-radius: 16px;
   cursor: pointer;
 
+  &.disabled {
+    cursor: unset;
+  }
+
   &:hover {
     background-color: var(--primaryColorLightGray);
+
+    &.disabled {
+      background-color: var(--primaryColorWhite);
+    }
   }
 }
 

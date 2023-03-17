@@ -36,3 +36,11 @@
   font-size: 24px;
   margin-bottom: 30px;
 }
+
+.journeyTypesList {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  column-gap: 40px;
+}

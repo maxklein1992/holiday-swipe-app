@@ -8,7 +8,10 @@ const JourneyCard = ({ onClick, image, title, disabled }) => {
 
   return (
     <button
-      className={styles.journeyTypeContainer}
+      className={[
+        styles.journeyTypeContainer,
+        disabled && styles.disabled,
+      ].join(" ")}
       onClick={!disabled && onClick && onClick}
     >
       <div className={styles.imageContainer}>
