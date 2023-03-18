@@ -10,6 +10,7 @@ import Login from "./pages/login";
 import InviteFriend from "./pages/inviteFriend";
 import CreateGame from "./pages/createGame";
 import { refresh } from "./redux/actions/auth";
+import { getUserId } from "./utils/jwt";
 
 const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
   const dispatch = useDispatch();
@@ -17,12 +18,13 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
   const [userInfoLoading, setUserInfoLoading] = React.useState(true);
 
   React.useEffect(() => {
-    if (isAuthenticated)
+    const userId = getUserId();
+
+    if (isAuthenticated && userId)
       (async () => {
         try {
-          setUserInfoLoading(true);
-          const response = await fetchUserdata();
-          if (response && response.personal_data) {
+          const response = await fetchUserdata(userId);
+          if (response && response.personal_data && !response.error) {
             setUserInfoLoading(false);
           }
         } catch (error) {
@@ -58,6 +60,6 @@ export default connect(
     userInfo: state.user.personal_data,
   }),
   (dispatch) => ({
-    fetchUserdata: () => dispatch(userActions.fetchUserdata()),
+    fetchUserdata: (userId) => dispatch(userActions.fetchUserdata(userId)),
   })
 )(Routing);

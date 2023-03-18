@@ -4,19 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 import { dashboard } from "../../constants/paths";
 import JourneyCard from "../../components/journeyCard";
-import { inviteFriend } from "../../constants/paths";
 import styles from "./Login.module.scss";
-import { signIn } from "../../redux/actions/auth";
 import * as authActions from "../../redux/actions/auth";
+import GameTypes from "../../constants/gameTypes";
 
-const Login = ({ signIn }) => {
-  const dispatch = useDispatch();
+const Login = ({ isAuthenticated, authLoading }) => {
   const navigate = useNavigate();
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
   React.useEffect(() => {
-    if (isAuthenticated) navigate(dashboard);
+    if (isAuthenticated && authLoading === false) navigate(dashboard);
   }, [isAuthenticated]);
 
   return (
@@ -35,21 +31,14 @@ const Login = ({ signIn }) => {
           Choose your type of holiday
         </h1>
         <div className={styles.journeyTypesList}>
-          <JourneyCard
-            image="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
-            title="Places in Portugal"
-            disabled
-          />
-          <JourneyCard
-            image="https://cdn-icons-png.flaticon.com/512/197/197615.png"
-            title="Countries in Europe"
-            disabled
-          />
-          <JourneyCard
-            image="https://d35aaqx5ub95lt.cloudfront.net/images/userMotivationSurvey/fbcf7ddad59a2c199b2e5e0b5dc4f601.svg"
-            title="Countries Worldwide"
-            disabled
-          />
+          {GameTypes.map((type) => (
+            <JourneyCard
+              key={`card ${type.title}`}
+              image={type.url}
+              title={type.title}
+              disabled
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -57,7 +46,10 @@ const Login = ({ signIn }) => {
 };
 
 export default connect(
-  (state) => ({}),
+  (state) => ({
+    authLoading: state.auth.loading,
+    isAuthenticated: state.auth.isAuthenticated,
+  }),
   (dispatch) => ({
     signIn: () => dispatch(authActions.signIn()),
   })

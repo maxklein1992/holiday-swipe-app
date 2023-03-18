@@ -8,7 +8,7 @@ import { login, dashboard } from "../../constants/paths";
 import Button from "../../elements/button";
 import Input from "../../elements/input";
 
-const InviteFriend = ({ isAuthenticated }) => {
+const InviteFriend = ({ isAuthenticated, createGame, userEmail }) => {
   const navigate = useNavigate();
 
   const [email, setEmail] = React.useState("");
@@ -17,9 +17,13 @@ const InviteFriend = ({ isAuthenticated }) => {
     return <Navigate to={login} replace />;
   }
 
-  const onSubmit = () => {
-    //
-    navigate(dashboard, { replace: true });
+  const onSubmit = async () => {
+    const emails = [userEmail, email];
+    const response = await createGame({ emails });
+
+    if (!response.error) {
+      navigate(dashboard, { replace: true });
+    }
   };
 
   return (
@@ -49,8 +53,9 @@ const InviteFriend = ({ isAuthenticated }) => {
 export default connect(
   (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
+    userEmail: state.user.personal_data.email,
   }),
   (dispatch) => ({
-    createGame: (email) => dispatch(gameActions.createGame(email)),
+    createGame: (emails) => dispatch(gameActions.createGame(emails)),
   })
 )(InviteFriend);

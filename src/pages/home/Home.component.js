@@ -7,6 +7,7 @@ import * as userActions from "../../redux/actions/user";
 import styles from "./Home.module.scss";
 import { login, createGame } from "../../constants/paths";
 import Button from "../../elements/button";
+import { getUserId } from "../../utils/jwt";
 
 const Home = ({
   signOut,

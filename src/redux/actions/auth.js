@@ -1,6 +1,8 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {
   collection,
+  doc,
+  setDoc,
   addDoc,
   query,
   where,
@@ -53,24 +55,23 @@ export const signIn = () => async (dispatch) => {
     const userInfo = {
       id: uid,
       email,
-      name: displayName,
+      full_name: displayName,
     };
 
     saveToStorage("userId", userInfo.id);
-    saveToStorage("name", userInfo.name);
+    saveToStorage("full_name", userInfo.full_name);
 
     const collectionRef = collection(database, "users");
     const response = query(collectionRef, where("id", "==", userInfo.id));
-
     const snapshot = await getCountFromServer(response);
 
     const userCount = snapshot._data.value.mapValue.fields.count.integerValue;
 
     if (userCount == 0) {
-      await addDoc(collectionRef, {
+      await setDoc(doc(database, "users", userInfo.id), {
         id: userInfo.id,
         email: userInfo.email,
-        name: userInfo.name,
+        full_name: userInfo.full_name,
       });
     }
 

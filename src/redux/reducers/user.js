@@ -1,4 +1,4 @@
-import { GET_USER_INFO } from "../actions/user";
+import { USER_INFO_FETCH } from "../actions/user";
 
 const initialState = {
   personal_data: {
@@ -9,7 +9,7 @@ const initialState = {
 
 const User = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USER_INFO:
+    case USER_INFO_FETCH:
       return {
         ...state,
         personal_data: action.personal_data,

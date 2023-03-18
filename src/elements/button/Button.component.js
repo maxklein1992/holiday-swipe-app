@@ -11,11 +11,7 @@ const Button = ({ onClick, children, className, variant, disabled, size }) => {
     .trim();
 
   return (
-    <button
-      className={classNames}
-      onClick={() => onClick()}
-      disabled={disabled}
-    >
+    <button className={classNames} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
