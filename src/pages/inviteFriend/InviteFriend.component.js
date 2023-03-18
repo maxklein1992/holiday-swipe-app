@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
 
-import * as gameActions from "../../redux/actions/game";
+import * as gameActions from "../../redux/actions/games";
 import styles from "./InviteFriend.module.scss";
 import { login, dashboard } from "../../constants/paths";
 import Button from "../../elements/button";

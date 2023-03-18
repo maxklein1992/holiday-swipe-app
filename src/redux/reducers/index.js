@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
 import auth from "./auth";
-import game from "./game";
+import games from "./games";
 import user from "./user";
 
-const rootReducer = combineReducers({ auth, game, user });
+const rootReducer = combineReducers({ auth, games, user });
 
 export default rootReducer;

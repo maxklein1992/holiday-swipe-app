@@ -4,6 +4,7 @@ import {
   where,
   getCountFromServer,
   query,
+  getDocs,
 } from "firebase/firestore";
 import { games } from "../../constants/collections";
 
@@ -14,19 +15,28 @@ export const GAME_CREATE_FAILED = "GAME_CREATE_FAILED";
 export const GAMES_FETCH = "GAMES_FETCH";
 export const GAMES_FETCH_FAILED = "GAMES_FETCH_FAILED";
 
-export const getGames = (userId) => async (dispatch) => {
+export const fetchGames = (email) => async (dispatch) => {
   try {
-    const q = query(collection(database, games), where("emails", "==", true));
+    const queryResult = query(
+      collection(database, games),
+      where("emails", "array-contains", email)
+    );
 
-    console.log(q, "www");
+    const snapshot = await getDocs(queryResult);
+
+    const response = snapshot.docs.map((doc) => doc.data());
 
     return dispatch({
       type: GAMES_FETCH,
+      games: response,
     });
   } catch (error) {
     console.log(error, "error");
+    const res = error.response;
+
     return dispatch({
       type: GAMES_FETCH_FAILED,
+      error: res.data[0].code,
     });
   }
 };
