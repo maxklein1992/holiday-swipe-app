@@ -56,15 +56,58 @@ const Home = ({
               </Button>
             </>
           ) : (
-            <>
+            <div className={styles.gamesContainer}>
               {Object.keys(games).map((game, i) => (
-                <p>
-                  {games[i].emails[0]} and {games[i].emails[1]}
-                </p>
+                <div className={styles.match}>
+                  <div className={styles.upperPart}>
+                    <img
+                      className={styles.image}
+                      src="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
+                    />
+                    <p className={styles.matchTitle}>Portuguese places</p>
+                  </div>
+                  <div className={styles.lowerPart}>
+                    <div className={styles.participantContainer}>
+                      <p className={styles.participantTitle}>
+                        {games[i].emails[0] === userInfo.email
+                          ? "you"
+                          : games[i].emails[0]}
+                      </p>
+                      <p
+                        className={[
+                          styles.participantAction,
+                          styles.isGreen,
+                        ].join(" ")}
+                      >
+                        swiped
+                      </p>
+                    </div>
+                    <div className={styles.participantContainer}>
+                      <p className={styles.participantTitle}>
+                        {games[i].emails[1] === userInfo.email
+                          ? "You"
+                          : games[i].emails[1]}
+                      </p>
+                      <p className={styles.participantAction}>not yet swiped</p>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </>
+            </div>
           )}
         </div>
+        {games && (
+          <div className={styles.startNewGameContainer}>
+            <h1 className={styles.newGameHeader}>Start new travel</h1>
+            <Button
+              onClick={() => navigate(createGame, { replace: true })}
+              variant="primary"
+              className={styles.button}
+            >
+              Find new destination now
+            </Button>
+          </div>
+        )}
       </div>
     )
   );

@@ -1,11 +1,4 @@
-import {
-  collection,
-  addDoc,
-  where,
-  getCountFromServer,
-  query,
-  getDocs,
-} from "firebase/firestore";
+import { collection, addDoc, where, query, getDocs } from "firebase/firestore";
 import { games } from "../../constants/collections";
 
 import database from "../../firebase/firebase";
