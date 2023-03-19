@@ -25,6 +25,7 @@ const ChooseDestinations = ({
   const gameId = location.state.id;
 
   const [loading, setLoading] = React.useState(true);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [destinations, setDestinations] = React.useState(null);
   const [swipeCount, setSwipeCount] = React.useState(0);
   const [choices, setChoices] = React.useState([]);
@@ -55,7 +56,8 @@ const ChooseDestinations = ({
   };
 
   const handleSubmit = async () => {
-    addChoices({
+    setIsSubmitting(true);
+    await addChoices({
       choices,
       gameId,
       userId: userInfo.id,
@@ -69,6 +71,7 @@ const ChooseDestinations = ({
     });
     game.participants[index].hasCompleted = true;
     await updateGame({ game, id: gameId });
+    setIsSubmitting(false);
     navigate(dashboard, { replace: true });
   };
 
@@ -109,7 +112,12 @@ const ChooseDestinations = ({
       ) : (
         <>
           <p className={styles.finishedTitle}>You are done swiping</p>
-          <Button variant="primary" onClick={() => handleSubmit()}>
+          <Button
+            variant="primary"
+            onClick={() => handleSubmit()}
+            loading={isSubmitting}
+            size="big"
+          >
             Continue
           </Button>
         </>

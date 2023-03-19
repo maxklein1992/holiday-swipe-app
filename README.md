@@ -2,7 +2,7 @@
 
 How to run the development server
 
-`npm run dev`
+`npm run start`
 
 ### Stack
 

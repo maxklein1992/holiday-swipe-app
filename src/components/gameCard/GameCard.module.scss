@@ -6,7 +6,7 @@
   cursor: pointer;
   border: 1px solid var(--secondaryColorLightGray);
   border-radius: pxToRem(16);
-  padding: pxToRem(48) pxToRem(24) pxToRem(32);
+  padding: pxToRem(48) pxToRem(24) pxToRem(40);
 
   &:hover {
     background-color: var(--primaryColorLightGray);
@@ -16,7 +16,7 @@
 .upperPart {
   display: flex;
   align-items: center;
-  column-gap: pxToRem(16);
+  column-gap: pxToRem(8);
   padding-bottom: 10px;
   border-bottom: 1px solid var(--primaryColorGray);
 }
