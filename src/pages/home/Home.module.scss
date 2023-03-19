@@ -11,13 +11,13 @@
 }
 
 .gamesOverviewContainer {
-  margin-bottom: pxToRem(100);
+  margin-bottom: pxToRem(50);
 }
 
 .gamesContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: pxToRem(64);
+  grid-gap: pxToRem(38);
   width: 100%;
 }
 
@@ -25,66 +25,10 @@
   margin-bottom: pxToRem(40);
 }
 
-.button {
-  margin-top: pxToRem(25);
-}
-
-.match {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.upperPart {
-  display: flex;
-  align-items: center;
-  column-gap: pxToRem(16);
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--primaryColorGray);
-}
-
-.image {
-  width: 40px;
-}
-
-.matchTitle {
-  text-transform: uppercase;
-  font-size: pxToRem(16);
-  font-weight: bold;
-  color: var(--primaryColorBlue);
-}
-
-.lowerPart {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 16px;
-}
-
-.participantContainer {
-  margin-bottom: pxToRem(30);
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-}
-
-.participantTitle {
-  font-size: pxToRem(16);
-  font-weight: bold;
-  color: var(--primaryColorBlack);
-  margin-bottom: pxToRem(6);
-}
-
-.participantAction {
-  font-size: pxToRem(16);
-  color: var(--primaryColorOrange);
-
-  &.isGreen {
-    color: var(--primaryColorGreen);
-  }
-}
-
 .startNewGameContainer {
   margin-bottom: pxToRem(50);
+}
+
+.button {
+  margin-top: pxToRem(25);
 }

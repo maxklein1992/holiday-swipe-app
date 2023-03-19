@@ -8,6 +8,7 @@ import styles from "./Home.module.scss";
 import { login, createGame } from "../../constants/paths";
 import Button from "../../elements/button";
 import { getUserId } from "../../utils/jwt";
+import MatchCard from "../../components/matchCard";
 
 const Home = ({
   fetchGames,
@@ -56,39 +57,7 @@ const Home = ({
           ) : (
             <div className={styles.gamesContainer}>
               {games.map((game, i) => (
-                <div className={styles.match} key={`key ${game.id}`}>
-                  <div className={styles.upperPart}>
-                    <img
-                      className={styles.image}
-                      src="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
-                    />
-                    <p className={styles.matchTitle}>Portuguese places</p>
-                  </div>
-                  <div className={styles.lowerPart}>
-                    {game.participants.map((participant) => (
-                      <div
-                        className={styles.participantContainer}
-                        key={`key ${participant.email}`}
-                      >
-                        <p className={styles.participantTitle}>
-                          {participant.email === userInfo.email
-                            ? "you"
-                            : participant.email}
-                        </p>
-                        <p
-                          className={[
-                            styles.participantAction,
-                            participant.hasCompleted && styles.isGreen,
-                          ].join(" ")}
-                        >
-                          {participant.hasCompleted
-                            ? "swiped"
-                            : "not yet swiped"}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <MatchCard game={game} userInfo={userInfo} />
               ))}
             </div>
           )}
@@ -100,6 +69,7 @@ const Home = ({
               onClick={() => navigate(createGame, { replace: true })}
               variant="primary"
               className={styles.button}
+              size="big"
             >
               Find new destination now
             </Button>

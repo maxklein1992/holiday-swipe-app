@@ -1,7 +1,6 @@
 import React from "react";
 
 import styles from "./JourneyCard.module.scss";
-import Button from "../../elements/button";
 
 const JourneyCard = ({ onClick, image, title, disabled }) => {
   // Defensive

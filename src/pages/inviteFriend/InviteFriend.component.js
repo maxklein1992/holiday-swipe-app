@@ -12,6 +12,7 @@ const InviteFriend = ({ isAuthenticated, createGame, userEmail }) => {
   const navigate = useNavigate();
 
   const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
 
   console.log(email, "usestate");
 
@@ -20,7 +21,10 @@ const InviteFriend = ({ isAuthenticated, createGame, userEmail }) => {
   }
 
   const onSubmit = async () => {
+    setLoading(true);
     const response = await createGame({ userEmail, email });
+
+    if (response) setLoading(false);
 
     if (!response.error) {
       navigate(dashboard, { replace: true });
@@ -44,6 +48,7 @@ const InviteFriend = ({ isAuthenticated, createGame, userEmail }) => {
         variant="primary"
         disabled={!email}
         size="big"
+        loading={loading}
       >
         Confirm
       </Button>
