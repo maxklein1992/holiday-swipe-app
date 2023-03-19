@@ -4,7 +4,7 @@ import { connect, useDispatch, useSelector } from "react-redux";
 
 import styles from "./CreateGame.module.scss";
 import { login, inviteFriend } from "../../constants/paths";
-import JourneyCard from "../../components/journeyCard";
+import GameTypeCard from "../../components/gameTypeCard";
 import GameTypes from "../../constants/gameTypes";
 
 const CreateGame = ({ isAuthenticated }) => {
@@ -23,7 +23,7 @@ const CreateGame = ({ isAuthenticated }) => {
         {GameTypes.map(
           (type) =>
             type.available && (
-              <JourneyCard
+              <GameTypeCard
                 key={`card ${type.title}`}
                 image={type.url}
                 title={type.title}

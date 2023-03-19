@@ -1,16 +1,20 @@
 import React from "react";
 
-import styles from "./MatchCard.module.scss";
+import styles from "./GameCard.module.scss";
 
-const MatchCard = ({ game, userInfo, onClick }) => {
+const GameCard = ({ game, userInfo, onClick }) => {
   return (
-    <button className={styles.match} key={`key ${game.id}`} onClick={onClick}>
+    <button
+      className={styles.component}
+      key={`key ${game.id}`}
+      onClick={onClick}
+    >
       <div className={styles.upperPart}>
         <img
           className={styles.image}
           src="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
         />
-        <p className={styles.matchTitle}>Portuguese places</p>
+        <p className={styles.title}>Portuguese places</p>
       </div>
       <div className={styles.lowerPart}>
         {game.participants.map((participant) => (
@@ -36,4 +40,4 @@ const MatchCard = ({ game, userInfo, onClick }) => {
   );
 };
 
-export default MatchCard;
+export default GameCard;

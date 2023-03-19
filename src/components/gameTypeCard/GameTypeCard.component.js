@@ -1,8 +1,8 @@
 import React from "react";
 
-import styles from "./JourneyCard.module.scss";
+import styles from "./GameTypeCard.module.scss";
 
-const JourneyCard = ({ onClick, image, title, disabled }) => {
+const GameTypeCard = ({ onClick, image, title, disabled }) => {
   // Defensive
   if (!title || !image) return null;
 
@@ -22,4 +22,4 @@ const JourneyCard = ({ onClick, image, title, disabled }) => {
   );
 };
 
-export default JourneyCard;
+export default GameTypeCard;

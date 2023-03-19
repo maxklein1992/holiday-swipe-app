@@ -1,6 +1,6 @@
 @import "../../styles/pxToRem";
 
-.match {
+.component {
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -25,7 +25,7 @@
   width: 40px;
 }
 
-.matchTitle {
+.title {
   text-transform: uppercase;
   font-size: pxToRem(16);
   font-weight: bold;

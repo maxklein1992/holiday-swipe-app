@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
+import findIndex from "lodash.findindex";
 
 import * as gamesActions from "../../redux/actions/games";
 import styles from "./Home.module.scss";
 import { login, createGame, chooseDestinations } from "../../constants/paths";
 import Button from "../../elements/button";
 import { getUserId } from "../../utils/jwt";
-import MatchCard from "../../components/matchCard";
+import GameCard from "../../components/gameCard";
 
 const Home = ({
   fetchGames,
@@ -59,18 +60,29 @@ const Home = ({
             </>
           ) : (
             <div className={styles.gamesContainer}>
-              {games.map((game, i) => (
-                <MatchCard
-                  game={game}
-                  userInfo={userInfo}
-                  onClick={() =>
-                    navigate(chooseDestinations, {
-                      replace: true,
-                      state: { id: game.id },
-                    })
-                  }
-                />
-              ))}
+              {games.map((game, i) => {
+                const index = findIndex(game.participants, {
+                  email: userInfo.email,
+                });
+                const userHasCompleted = game.participants[index].hasCompleted;
+
+                return (
+                  <GameCard
+                    game={game}
+                    userInfo={userInfo}
+                    onClick={() => {
+                      !userHasCompleted
+                        ? navigate(chooseDestinations, {
+                            replace: true,
+                            state: { id: game.id },
+                          })
+                        : alert(
+                            "We are waiting for the other participants to finish"
+                          );
+                    }}
+                  />
+                );
+              })}
             </div>
           )}
         </div>

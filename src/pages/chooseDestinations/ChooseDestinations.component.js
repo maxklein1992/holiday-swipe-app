@@ -7,7 +7,7 @@ import findIndex from "lodash.findindex";
 import * as destinationsActions from "../../redux/actions/destinations";
 import * as choicesActions from "../../redux/actions/choices";
 import * as gamesActions from "../../redux/actions/games";
-import { login, inviteFriend } from "../../constants/paths";
+import { login, inviteFriend, dashboard } from "../../constants/paths";
 import styles from "./ChooseDestinations.module.scss";
 import DestinationCard from "../../components/destinationCard";
 import Button from "../../elements/button";
@@ -21,6 +21,7 @@ const ChooseDestinations = ({
   userInfo,
 }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const gameId = location.state.id;
 
   const [loading, setLoading] = React.useState(true);
@@ -61,13 +62,14 @@ const ChooseDestinations = ({
       email: userInfo.email,
     });
     const response = await fetchGame({ id: gameId });
-    let currentGame = response.game;
+    let game = response.game;
 
-    const participantIndex = findIndex(currentGame.participants, {
+    const index = findIndex(game.participants, {
       email: userInfo.email,
     });
-    currentGame.participants[participantIndex].hasCompleted = true;
-    await updateGame({ game: currentGame, id: gameId });
+    game.participants[index].hasCompleted = true;
+    await updateGame({ game, id: gameId });
+    navigate(dashboard, { replace: true });
   };
 
   if (isAuthenticated === false) {

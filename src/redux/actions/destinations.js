@@ -16,7 +16,7 @@ import { destinations } from "../../constants/collections";
 export const DESTINATIONS_FETCH = "DESTINATIONS_FETCH";
 export const DESTINATIONS_FETCH_FAILED = "DESTINATIONS_FETCH_FAILED";
 
-export const fetchDestinations = (matchType) => async (dispatch) => {
+export const fetchDestinations = (gameType) => async (dispatch) => {
   try {
     const querySnapshot = await getDocs(collection(database, destinations));
     const response = [];

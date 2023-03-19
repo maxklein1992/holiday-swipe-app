@@ -3,7 +3,7 @@ import { useDispatch, useSelector, connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { dashboard } from "../../constants/paths";
-import JourneyCard from "../../components/journeyCard";
+import GameTypeCard from "../../components/gameTypeCard";
 import styles from "./Login.module.scss";
 import * as authActions from "../../redux/actions/auth";
 import GameTypes from "../../constants/gameTypes";
@@ -32,7 +32,7 @@ const Login = ({ isAuthenticated, authLoading }) => {
         </h1>
         <div className={styles.journeyTypesList}>
           {GameTypes.map((type) => (
-            <JourneyCard
+            <GameTypeCard
               key={`card ${type.title}`}
               image={type.url}
               title={type.title}
