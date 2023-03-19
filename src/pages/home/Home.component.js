@@ -34,8 +34,6 @@ const Home = ({
     return <Navigate to={login} replace />;
   }
 
-  console.log(games, "games");
-
   return (
     isAuthenticated === true && (
       <div className={styles.component}>
@@ -57,8 +55,8 @@ const Home = ({
             </>
           ) : (
             <div className={styles.gamesContainer}>
-              {Object.keys(games).map((game, i) => (
-                <div className={styles.match}>
+              {games.map((game, i) => (
+                <div className={styles.match} key={`key ${game.id}`}>
                   <div className={styles.upperPart}>
                     <img
                       className={styles.image}
@@ -67,29 +65,28 @@ const Home = ({
                     <p className={styles.matchTitle}>Portuguese places</p>
                   </div>
                   <div className={styles.lowerPart}>
-                    <div className={styles.participantContainer}>
-                      <p className={styles.participantTitle}>
-                        {games[i].emails[0] === userInfo.email
-                          ? "you"
-                          : games[i].emails[0]}
-                      </p>
-                      <p
-                        className={[
-                          styles.participantAction,
-                          styles.isGreen,
-                        ].join(" ")}
+                    {game.participants.map((participant) => (
+                      <div
+                        className={styles.participantContainer}
+                        key={`key ${participant.email}`}
                       >
-                        swiped
-                      </p>
-                    </div>
-                    <div className={styles.participantContainer}>
-                      <p className={styles.participantTitle}>
-                        {games[i].emails[1] === userInfo.email
-                          ? "You"
-                          : games[i].emails[1]}
-                      </p>
-                      <p className={styles.participantAction}>not yet swiped</p>
-                    </div>
+                        <p className={styles.participantTitle}>
+                          {participant.email === userInfo.email
+                            ? "you"
+                            : participant.email}
+                        </p>
+                        <p
+                          className={[
+                            styles.participantAction,
+                            participant.hasCompleted && styles.isGreen,
+                          ].join(" ")}
+                        >
+                          {participant.hasCompleted
+                            ? "swiped"
+                            : "not yet swiped"}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -118,7 +115,7 @@ export default connect(
     isAuthenticated: state.auth.isAuthenticated,
     authLoading: state.auth.loading,
     userInfo: state.user.personal_data,
-    games: state.games,
+    games: state.games.games,
   }),
   (dispatch) => ({
     fetchGames: (email) => dispatch(gameActions.fetchGames(email)),

@@ -13,13 +13,14 @@ const InviteFriend = ({ isAuthenticated, createGame, userEmail }) => {
 
   const [email, setEmail] = React.useState("");
 
+  console.log(email, "usestate");
+
   if (isAuthenticated === false) {
     return <Navigate to={login} replace />;
   }
 
   const onSubmit = async () => {
-    const emails = [userEmail, email];
-    const response = await createGame({ emails });
+    const response = await createGame({ userEmail, email });
 
     if (!response.error) {
       navigate(dashboard, { replace: true });

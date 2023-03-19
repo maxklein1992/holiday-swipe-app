@@ -1,4 +1,12 @@
-import { collection, addDoc, where, query, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  where,
+  query,
+  getDocs,
+  setDoc,
+  add,
+} from "firebase/firestore";
 import { games } from "../../constants/collections";
 
 import database from "../../firebase/firebase";
@@ -15,9 +23,16 @@ export const fetchGames = (email) => async (dispatch) => {
       where("emails", "array-contains", email)
     );
 
-    const snapshot = await getDocs(queryResult);
+    const response = [];
 
-    const response = snapshot.docs.map((doc) => doc.data());
+    const querySnapshot = await getDocs(queryResult);
+    querySnapshot.forEach((doc) => {
+      const structuredData = {
+        id: doc.id,
+        ...doc.data(),
+      };
+      response.push(structuredData);
+    });
 
     return dispatch({
       type: GAMES_FETCH,
@@ -34,20 +49,38 @@ export const fetchGames = (email) => async (dispatch) => {
   }
 };
 
-export const createGame = (emails) => async (dispatch) => {
-  try {
-    const docRef = await addDoc(collection(database, games), emails);
+export const createGame =
+  ({ userEmail, email }) =>
+  async (dispatch) => {
+    try {
+      const newDoc = {
+        emails: [userEmail, email],
+        participants: [
+          {
+            email: userEmail,
+            hasCompleted: false,
+          },
+          {
+            email: email,
+            hasCompleted: false,
+          },
+        ],
+        created_by: userEmail,
+        created_date: null,
+      };
 
-    return dispatch({
-      type: GAME_CREATE,
-    });
-  } catch (error) {
-    console.log(error, "error");
-    const res = error.response;
+      await addDoc(collection(database, "games"), newDoc);
 
-    return dispatch({
-      type: GAME_CREATE_FAILED,
-      error: res.data[0].code,
-    });
-  }
-};
+      return dispatch({
+        type: GAME_CREATE,
+      });
+    } catch (error) {
+      console.log(error, "error");
+
+      const res = error.response;
+      return dispatch({
+        type: GAME_CREATE_FAILED,
+        error: res.data[0].code,
+      });
+    }
+  };

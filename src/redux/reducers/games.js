@@ -1,12 +1,12 @@
 import { GAMES_FETCH, GAMES_FETCH_FAILED } from "../actions/games";
 
-const initialState = {};
+const initialState = { games: null };
 
 const Games = (state = initialState, action) => {
   switch (action.type) {
     case GAMES_FETCH:
       return {
-        ...action.games,
+        games: action.games,
       };
     default:
       return { ...state };
