@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
-import BeatLoader from "react-spinners/BeatLoader";
 
-import * as gameActions from "../../redux/actions/games";
+import * as gamesActions from "../../redux/actions/games";
 import styles from "./Home.module.scss";
-import { login, createGame } from "../../constants/paths";
+import { login, createGame, chooseDestinations } from "../../constants/paths";
 import Button from "../../elements/button";
 import { getUserId } from "../../utils/jwt";
 import MatchCard from "../../components/matchCard";
@@ -47,7 +46,11 @@ const Home = ({
             <>
               <p>You have not yet swiped through destinations yet! </p>
               <Button
-                onClick={() => navigate(createGame, { replace: true })}
+                onClick={() =>
+                  navigate(createGame, {
+                    replace: true,
+                  })
+                }
                 variant="primary"
                 className={styles.button}
               >
@@ -57,7 +60,16 @@ const Home = ({
           ) : (
             <div className={styles.gamesContainer}>
               {games.map((game, i) => (
-                <MatchCard game={game} userInfo={userInfo} />
+                <MatchCard
+                  game={game}
+                  userInfo={userInfo}
+                  onClick={() =>
+                    navigate(chooseDestinations, {
+                      replace: true,
+                      state: { id: game.id },
+                    })
+                  }
+                />
               ))}
             </div>
           )}
@@ -88,6 +100,6 @@ export default connect(
     games: state.games.games,
   }),
   (dispatch) => ({
-    fetchGames: (email) => dispatch(gameActions.fetchGames(email)),
+    fetchGames: (email) => dispatch(gamesActions.fetchGames(email)),
   })
 )(Home);

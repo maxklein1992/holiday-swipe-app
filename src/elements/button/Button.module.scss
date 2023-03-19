@@ -21,6 +21,14 @@
   }
 }
 
+.secondary {
+  background-color: var(--primaryColorRed);
+
+  &:hover {
+    background-color: var(--secondaryColorRed);
+  }
+}
+
 .primary-inverted {
   color: var(--primaryColorWhite);
   color: "red";

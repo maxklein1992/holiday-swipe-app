@@ -2,9 +2,9 @@ import React from "react";
 
 import styles from "./MatchCard.module.scss";
 
-const MatchCard = ({ game, userInfo }) => {
+const MatchCard = ({ game, userInfo, onClick }) => {
   return (
-    <div className={styles.match} key={`key ${game.id}`}>
+    <button className={styles.match} key={`key ${game.id}`} onClick={onClick}>
       <div className={styles.upperPart}>
         <img
           className={styles.image}
@@ -32,7 +32,7 @@ const MatchCard = ({ game, userInfo }) => {
           </div>
         ))}
       </div>
-    </div>
+    </button>
   );
 };
 
