@@ -20,13 +20,18 @@ const Home = ({
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [loading, setLoading] = React.useState(true);
+
   React.useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
         const response = await fetchGames(userInfo.email);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     })();
   }, []);
@@ -34,6 +39,8 @@ const Home = ({
   if (isAuthenticated === false && authLoading === false) {
     return <Navigate to={login} replace />;
   }
+
+  if (loading) return null;
 
   return (
     isAuthenticated === true && (
@@ -43,7 +50,7 @@ const Home = ({
         </div>
         <div className={styles.gamesOverviewContainer}>
           <h1 className={styles.newGameHeader}>New travels</h1>
-          {!games ? (
+          {games.length === 0 ? (
             <>
               <p>You have not yet swiped through destinations yet! </p>
               <Button
@@ -86,7 +93,7 @@ const Home = ({
             </div>
           )}
         </div>
-        {games && (
+        {games.length > 0 && (
           <div className={styles.startNewGameContainer}>
             <h1 className={styles.newGameHeader}>Start new travel</h1>
             <Button
