@@ -18,7 +18,6 @@ const GameCard = ({ game, userInfo, onClick }) => {
       className={[styles.component, allHaveCompleted && styles.isGreen].join(
         " "
       )}
-      key={`key ${game.id}`}
       onClick={onClick}
     >
       <div className={styles.upperPart}>

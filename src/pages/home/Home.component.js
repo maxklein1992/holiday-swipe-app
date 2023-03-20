@@ -77,6 +77,10 @@ const Home = ({
                   const index = findIndex(game.participants, {
                     email: userInfo.email,
                   });
+                  if (index === -1) {
+                    console.log("Error: no match found");
+                    return null;
+                  }
                   const userHasCompleted =
                     game.participants[index].hasCompleted;
                   const opponentHasCompleted =
@@ -87,6 +91,7 @@ const Home = ({
 
                   return (
                     <GameCard
+                      key={`key ${game.id}`}
                       game={game}
                       userInfo={userInfo}
                       onClick={() =>

@@ -60,7 +60,6 @@ const ChooseDestinations = ({
     await addChoices({
       choices,
       gameId,
-      userId: userInfo.id,
       email: userInfo.email,
     });
     const response = await fetchGame({ id: gameId });
@@ -136,8 +135,8 @@ export default connect(
     updateGame: ({ game, id }) =>
       dispatch(gamesActions.updateGame({ game, id })),
     fetchGame: ({ id }) => dispatch(gamesActions.fetchGame({ id })),
-    addChoices: ({ choices, gameId, userId, email }) =>
-      dispatch(choicesActions.addChoices({ choices, gameId, userId, email })),
+    addChoices: ({ choices, gameId, email }) =>
+      dispatch(choicesActions.addChoices({ choices, gameId, email })),
     fetchDestinations: () => dispatch(destinationsActions.fetchDestinations()),
   })
 )(ChooseDestinations);

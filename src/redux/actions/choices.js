@@ -21,12 +21,12 @@ export const CHOICES_ADD = "CHOICES_ADD";
 export const CHOICES_ADD_FAILED = "CHOICES_ADD_FAILED";
 
 export const addChoices =
-  ({ choices, gameId, userId }) =>
+  ({ choices, gameId, email }) =>
   async (dispatch) => {
     try {
       const collectionRef = collection(database, choicesCollection);
       await addDoc(collectionRef, {
-        userId,
+        email,
         choices,
         gameId,
       });
