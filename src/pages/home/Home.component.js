@@ -72,39 +72,41 @@ const Home = ({
             </>
           ) : (
             <div className={styles.gamesContainer}>
-              {games.map((game, i) => {
-                const index = findIndex(game.participants, {
-                  email: userInfo.email,
-                });
-                const userHasCompleted = game.participants[index].hasCompleted;
-                const opponentHasCompleted =
-                  game.participants[index === 0 ? 1 : 0].hasCompleted;
+              {games &&
+                games.map((game, i) => {
+                  const index = findIndex(game.participants, {
+                    email: userInfo.email,
+                  });
+                  const userHasCompleted =
+                    game.participants[index].hasCompleted;
+                  const opponentHasCompleted =
+                    game.participants[index === 0 ? 1 : 0].hasCompleted;
 
-                const allHaveCompleted =
-                  userHasCompleted && opponentHasCompleted;
+                  const allHaveCompleted =
+                    userHasCompleted && opponentHasCompleted;
 
-                return (
-                  <GameCard
-                    game={game}
-                    userInfo={userInfo}
-                    onClick={() =>
-                      allHaveCompleted
-                        ? navigate(showResults, {
-                            replace: true,
-                            state: { id: game.id },
-                          })
-                        : !userHasCompleted
-                        ? navigate(chooseDestinations, {
-                            replace: true,
-                            state: { id: game.id },
-                          })
-                        : alert(
-                            "We are waiting for the other participants to finish"
-                          )
-                    }
-                  />
-                );
-              })}
+                  return (
+                    <GameCard
+                      game={game}
+                      userInfo={userInfo}
+                      onClick={() =>
+                        allHaveCompleted
+                          ? navigate(showResults, {
+                              replace: true,
+                              state: { id: game.id },
+                            })
+                          : !userHasCompleted
+                          ? navigate(chooseDestinations, {
+                              replace: true,
+                              state: { id: game.id },
+                            })
+                          : alert(
+                              "We are waiting for the other participants to finish"
+                            )
+                      }
+                    />
+                  );
+                })}
             </div>
           )}
         </div>
