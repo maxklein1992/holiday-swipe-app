@@ -11,6 +11,10 @@
   &:hover {
     background-color: var(--primaryColorLightGray);
   }
+
+  &.isGreen {
+    background-color: var(--primaryColorGreen);
+  }
 }
 
 .upperPart {
@@ -27,9 +31,13 @@
 
 .title {
   text-transform: uppercase;
-  font-size: pxToRem(16);
+  font-size: pxToRem(13);
   font-weight: bold;
   color: var(--primaryColorBlue);
+
+  &.isBlack {
+    color: var(--primaryColorBlack);
+  }
 }
 
 .lowerPart {
@@ -59,6 +67,11 @@
 .participantAction {
   font-size: pxToRem(16);
   color: var(--primaryColorOrange);
+
+  &.isWhite {
+    color: var(--primaryColorWhite);
+    font-weight: bold;
+  }
 
   &.isGreen {
     color: var(--primaryColorGreen);

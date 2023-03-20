@@ -1,11 +1,23 @@
 import React from "react";
+import findIndex from "lodash.findindex";
 
 import styles from "./GameCard.module.scss";
 
 const GameCard = ({ game, userInfo, onClick }) => {
+  const index = findIndex(game.participants, {
+    email: userInfo.email,
+  });
+  const userHasCompleted = game.participants[index].hasCompleted;
+  const opponentHasCompleted =
+    game.participants[index === 0 ? 1 : 0].hasCompleted;
+
+  const allHaveCompleted = userHasCompleted && opponentHasCompleted;
+
   return (
     <button
-      className={styles.component}
+      className={[styles.component, allHaveCompleted && styles.isGreen].join(
+        " "
+      )}
       key={`key ${game.id}`}
       onClick={onClick}
     >
@@ -14,7 +26,13 @@ const GameCard = ({ game, userInfo, onClick }) => {
           className={styles.image}
           src="https://cdn-icons-png.flaticon.com/512/197/197615.png"
         />
-        <p className={styles.title}>Countries in Europe</p>
+        <p
+          className={[styles.title, allHaveCompleted && styles.isBlack].join(
+            " "
+          )}
+        >
+          {allHaveCompleted ? "Click to see results" : "Countries in Europe"}
+        </p>
       </div>
       <div className={styles.lowerPart}>
         {game.participants.map((participant) => (
@@ -28,7 +46,9 @@ const GameCard = ({ game, userInfo, onClick }) => {
             <p
               className={[
                 styles.participantAction,
-                participant.hasCompleted && styles.isGreen,
+                allHaveCompleted
+                  ? styles.isWhite
+                  : participant.hasCompleted && styles.isGreen,
               ].join(" ")}
             >
               {participant.hasCompleted ? "swiped" : "not yet swiped"}

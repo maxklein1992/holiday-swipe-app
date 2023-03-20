@@ -26,7 +26,7 @@
   color: var(--primaryColorBlue);
 }
 
-.journeyTypesComponent {
+.gameTypesComponent {
   display: flex;
   flex-direction: column;
   margin-top: pxToRem(80);
@@ -34,12 +34,16 @@
   justify-content: center;
 }
 
-.journeyTypesTitle {
-  font-size: pxToRem(24);
+.gameTypesTitle {
+  font-size: pxToRem(21);
   margin-bottom: pxToRem(30);
 }
 
-.journeyTypesList {
+.isBlue {
+  color: var(--primaryColorBlue);
+}
+
+.gameTypesList {
   display: flex;
   flex-direction: row;
   width: 100%;

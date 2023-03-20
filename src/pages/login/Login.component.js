@@ -26,11 +26,11 @@ const Login = ({ isAuthenticated, authLoading }) => {
           family member
         </h1>
       </div>
-      <div className={styles.journeyTypesComponent}>
-        <h1 className={styles.journeyTypesTitle}>
-          Choose your type of holiday
+      <div className={styles.gameTypesComponent}>
+        <h1 className={styles.gameTypesTitle}>
+          Choose your type of <span className={styles.isBlue}>holiday</span>
         </h1>
-        <div className={styles.journeyTypesList}>
+        <div className={styles.gameTypesList}>
           {GameTypes.map((type) => (
             <GameTypeCard
               key={`card ${type.title}`}
