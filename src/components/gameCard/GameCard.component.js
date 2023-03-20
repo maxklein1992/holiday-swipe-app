@@ -12,9 +12,9 @@ const GameCard = ({ game, userInfo, onClick }) => {
       <div className={styles.upperPart}>
         <img
           className={styles.image}
-          src="https://cdn-icons-png.flaticon.com/512/1795/1795606.png"
+          src="https://cdn-icons-png.flaticon.com/512/197/197615.png"
         />
-        <p className={styles.title}>Portuguese places</p>
+        <p className={styles.title}>Countries in Europe</p>
       </div>
       <div className={styles.lowerPart}>
         {game.participants.map((participant) => (
