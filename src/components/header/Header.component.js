@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 
+import { Link } from "react-router-dom";
 import { dashboard, login } from "../../constants/paths";
 import Button from "../../elements/button";
 import * as authActions from "../../redux/actions/auth";
@@ -11,9 +12,9 @@ const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
 
   return (
     <div className={styles.component}>
-      <a className={styles.logo} href={isAuthenticated ? dashboard : login}>
+      <Link className={styles.logo} to={isAuthenticated ? dashboard : login}>
         Holiday Swipe
-      </a>
+      </Link>
       {!isAuthenticated && (
         <div className={styles.loginContainer}>
           <Button onClick={() => dispatch(signIn())} variant="primary-inverted">

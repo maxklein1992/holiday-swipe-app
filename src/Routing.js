@@ -11,6 +11,7 @@ import {
   chooseDestinations,
   showResults,
 } from "./constants/paths";
+import Layout from "./components/layout";
 import * as userActions from "./redux/actions/user";
 import Home from "./pages/home";
 import Login from "./pages/login";
@@ -52,14 +53,16 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={dashboard} element={<Home />} />
-        <Route path={login} element={<Login />} />
-        <Route path={createGame} element={<CreateGame />} />
-        <Route path={inviteFriend} element={<InviteFriend />} />
-        <Route path={chooseDestinations} element={<ChooseDestinations />} />
-        <Route path={showResults} element={<ShowResults />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path={dashboard} element={<Home />} />
+          <Route path={login} element={<Login />} />
+          <Route path={createGame} element={<CreateGame />} />
+          <Route path={inviteFriend} element={<InviteFriend />} />
+          <Route path={chooseDestinations} element={<ChooseDestinations />} />
+          <Route path={showResults} element={<ShowResults />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };
