@@ -53,7 +53,8 @@ export const fetchChoices =
     try {
       const queryResult = query(
         collection(database, choicesCollection),
-        where("email", "==", email)
+        where("email", "==", email),
+        where("gameId", "==", gameId)
       );
 
       const response = [];
