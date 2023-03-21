@@ -98,7 +98,10 @@ const Home = ({
                         allHaveCompleted
                           ? navigate(showResults, {
                               replace: true,
-                              state: { id: game.id },
+                              state: {
+                                id: game.id,
+                                participants: game.participants,
+                              },
                             })
                           : !userHasCompleted
                           ? navigate(chooseDestinations, {
