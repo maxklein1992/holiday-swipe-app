@@ -10,6 +10,7 @@ import {
   inviteFriend,
   chooseDestinations,
   showResults,
+  notFound,
 } from "./constants/paths";
 import Layout from "./components/layout";
 import * as userActions from "./redux/actions/user";
@@ -61,6 +62,7 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
           <Route path={inviteFriend} element={<InviteFriend />} />
           <Route path={chooseDestinations} element={<ChooseDestinations />} />
           <Route path={showResults} element={<ShowResults />} />
+          <Route path={notFound} element={<h1>Page not found</h1>} />
         </Routes>
       </Layout>
     </BrowserRouter>
