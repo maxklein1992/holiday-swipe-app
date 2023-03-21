@@ -8,8 +8,6 @@ import * as authActions from "../../redux/actions/auth";
 import styles from "./Header.module.scss";
 
 const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
-  const dispatch = useDispatch();
-
   return (
     <div className={styles.component}>
       <Link className={styles.logo} to={isAuthenticated ? dashboard : login}>
@@ -17,7 +15,7 @@ const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
       </Link>
       {!isAuthenticated && (
         <div className={styles.loginContainer}>
-          <Button onClick={() => dispatch(signIn())} variant="primary-inverted">
+          <Button onClick={() => signIn()} variant="primary-inverted">
             Sign up / Log in
           </Button>
         </div>
@@ -25,7 +23,7 @@ const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
       {isAuthenticated && userInfo && (
         <div className={styles.logoutContainer}>
           <p className={styles.userName}>{userInfo.full_name}</p>
-          <Button onClick={() => dispatch(signOut())} variant="primary">
+          <Button onClick={() => signOut()} variant="primary">
             Log out
           </Button>
         </div>
