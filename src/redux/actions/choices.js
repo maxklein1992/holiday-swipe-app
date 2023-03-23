@@ -14,11 +14,14 @@ import {
 import database from "../../firebase/firebase";
 import {
   choices as choicesCollection,
+  finalChoices,
   games,
 } from "../../constants/collections";
 
 export const CHOICES_ADD = "CHOICES_ADD";
 export const CHOICES_ADD_FAILED = "CHOICES_ADD_FAILED";
+export const FINAL_CHOICES_ADD = "FINAL_CHOICES_ADD";
+export const FINAL_CHOICES_ADD_FAILED = "FINAL_CHOICES_ADD_FAILED";
 export const CHOICES_FETCH = "DESTINATIONS_FETCH";
 export const CHOICES_FETCH_FAILED = "DESTINATIONS_FETCH_FAILED";
 
@@ -42,6 +45,31 @@ export const addChoices =
 
       return dispatch({
         type: CHOICES_ADD_FAILED,
+        error: res.data[0].code,
+      });
+    }
+  };
+
+export const addFinalChoices =
+  ({ choices, gameId, email }) =>
+  async (dispatch) => {
+    try {
+      const collectionRef = collection(database, finalChoices);
+      await addDoc(collectionRef, {
+        email,
+        choices,
+        gameId,
+      });
+
+      return dispatch({
+        type: FINAL_CHOICES_ADD,
+      });
+    } catch (error) {
+      console.log(error);
+      const res = error.response;
+
+      return dispatch({
+        type: FINAL_CHOICES_ADD_FAILED,
         error: res.data[0].code,
       });
     }

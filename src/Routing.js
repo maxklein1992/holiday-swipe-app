@@ -10,6 +10,7 @@ import {
   inviteFriend,
   chooseDestinations,
   showResults,
+  showWinner,
   notFound,
 } from "./constants/paths";
 import Layout from "./components/layout";
@@ -19,6 +20,7 @@ import Login from "./pages/login";
 import InviteFriend from "./pages/inviteFriend";
 import ChooseDestinations from "./pages/chooseDestinations";
 import ShowResults from "./pages/showResults";
+import ShowWinner from "./pages/showWinner";
 import CreateGame from "./pages/createGame";
 import { refresh } from "./redux/actions/auth";
 import { getUserId } from "./utils/jwt";
@@ -62,6 +64,7 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
           <Route path={inviteFriend} element={<InviteFriend />} />
           <Route path={chooseDestinations} element={<ChooseDestinations />} />
           <Route path={showResults} element={<ShowResults />} />
+          <Route path={showWinner} element={<ShowWinner />} />
           <Route path={notFound} element={<h1>Page not found</h1>} />
         </Routes>
       </Layout>

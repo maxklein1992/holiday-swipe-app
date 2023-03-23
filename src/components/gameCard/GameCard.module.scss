@@ -12,6 +12,10 @@
     background-color: var(--primaryColorLightGray);
   }
 
+  &.isBlue {
+    background-color: var(--primaryColorBlue);
+  }
+
   &.isGreen {
     background-color: var(--primaryColorGreen);
   }
@@ -35,8 +39,8 @@
   font-weight: bold;
   color: var(--primaryColorBlue);
 
-  &.isBlack {
-    color: var(--primaryColorBlack);
+  &.isWhite {
+    color: var(--primaryColorWhite);
   }
 }
 
@@ -55,6 +59,10 @@
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  &.isFinished {
+    margin-bottom: 0;
+  }
 }
 
 .participantTitle {
@@ -62,11 +70,25 @@
   font-weight: bold;
   color: var(--primaryColorBlack);
   margin-bottom: pxToRem(6);
+
+  &.isWhite {
+    color: var(--primaryColorWhite);
+    font-weight: unset;
+  }
 }
 
 .participantAction {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
   font-size: pxToRem(16);
   color: var(--primaryColorOrange);
+
+  &.isBlue {
+    color: var(--primaryColorBlue);
+    font-weight: bold;
+  }
 
   &.isWhite {
     color: var(--primaryColorWhite);

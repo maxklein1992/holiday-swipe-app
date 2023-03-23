@@ -4,4 +4,5 @@ export const createGame = "/start-journey";
 export const inviteFriend = "/invite-friend";
 export const chooseDestinations = "/choose-destinations";
 export const showResults = "/see-results";
+export const showWinner = "/show-winner";
 export const notFound = "*";

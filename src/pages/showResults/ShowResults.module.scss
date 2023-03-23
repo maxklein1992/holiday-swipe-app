@@ -1,0 +1,62 @@
+@import "../../styles/pxToRem";
+
+.subTitle {
+  margin-top: pxToRem(30);
+  margin-bottom: pxToRem(30);
+}
+.destinationsOverview {
+  display: flex;
+  width: 100%;
+}
+.destinationslist {
+  list-style-type: none;
+  width: pxToRem(200);
+  border: 2px solid var(--primaryColorGray);
+}
+
+.destinationContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: pxToRem(50);
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--primaryColorGray);
+  background-color: white;
+  user-select: none;
+
+  &.isGray {
+    background-color: var(--primaryColorGray);
+  }
+}
+
+.rankingNumberTest {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  color: var(--primaryColorGreen);
+  font-weight: bold;
+}
+
+.rankingNumbersContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 2px;
+  left: 2px;
+}
+
+.rankingNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: pxToRem(50);
+  height: pxToRem(50);
+  color: var(--primaryColorGreen);
+  font-weight: bold;
+}
+
+.buttonContainer {
+  margin-top: pxToRem(50);
+  margin-left: pxToRem(100);
+}

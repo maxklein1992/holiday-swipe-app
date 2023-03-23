@@ -68,10 +68,10 @@ const ChooseDestinations = ({
     const index = findIndex(game.participants, {
       email: userInfo.email,
     });
-    game.participants[index].hasCompleted = true;
+    game.participants[index].hasCompletedFirstTime = true;
     await updateGame({ game, id: gameId });
     setIsSubmitting(false);
-    navigate(dashboard, { replace: true });
+    navigate(dashboard);
   };
 
   if (isAuthenticated === false) {

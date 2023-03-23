@@ -10,6 +10,7 @@ import {
   createGame,
   chooseDestinations,
   showResults,
+  showWinner,
 } from "../../constants/paths";
 import Button from "../../elements/button";
 import { getUserId } from "../../utils/jwt";
@@ -26,6 +27,18 @@ const Home = ({
   const dispatch = useDispatch();
 
   const [loading, setLoading] = React.useState(true);
+
+  const getStatusGame = ({ user, opponent }) => {
+    if (user.hasCompletedSecondTime && opponent.hasCompletedSecondTime)
+      return "finished";
+    if (user.hasCompletedSecondTime) return "opponent_second";
+    if (opponent.hasCompletedSecondTime) return "user_second";
+    if (user.hasCompletedFirstTime && opponent.hasCompletedFirstTime)
+      return "both_second";
+    if (user.hasCompletedFirstTime) return "opponent_first";
+    if (opponent.hasCompletedFirstTime) return "user_first";
+    return "both_first";
+  };
 
   React.useEffect(() => {
     (async () => {
@@ -81,31 +94,34 @@ const Home = ({
                     console.log("Error: no match found");
                     return null;
                   }
-                  const userHasCompleted =
-                    game.participants[index].hasCompleted;
-                  const opponentHasCompleted =
-                    game.participants[index === 0 ? 1 : 0].hasCompleted;
 
-                  const allHaveCompleted =
-                    userHasCompleted && opponentHasCompleted;
+                  const gameStatus = getStatusGame({
+                    user: game.participants[index],
+                    opponent: game.participants[index === 0 ? 1 : 0],
+                  });
 
                   return (
                     <GameCard
                       key={`key ${game.id}`}
                       game={game}
                       userInfo={userInfo}
+                      gameStatus={gameStatus}
                       onClick={() =>
-                        allHaveCompleted
+                        gameStatus === "finished"
+                          ? navigate(showWinner, {
+                              state: { id: game.id },
+                            })
+                          : gameStatus === "both_second" ||
+                            gameStatus === "user_second"
                           ? navigate(showResults, {
-                              replace: true,
                               state: {
                                 id: game.id,
                                 participants: game.participants,
                               },
                             })
-                          : !userHasCompleted
+                          : gameStatus === "both_first" ||
+                            gameStatus === "user_first"
                           ? navigate(chooseDestinations, {
-                              replace: true,
                               state: { id: game.id },
                             })
                           : alert(

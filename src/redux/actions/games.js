@@ -67,11 +67,13 @@ export const createGame =
         participants: [
           {
             email: userEmail,
-            hasCompleted: false,
+            hasCompletedFirstTime: false,
+            hasCompletedSecondTime: false,
           },
           {
             email: email,
-            hasCompleted: false,
+            hasCompletedFirstTime: false,
+            hasCompletedSecondTime: false,
           },
         ],
         created_by: userEmail,
