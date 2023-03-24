@@ -33,6 +33,9 @@ const Home = ({
   const [feedbackIsSubmitting, setFeedbackIsSubmitting] = React.useState(false);
   const [feedback, setFeedback] = React.useState("");
 
+  const fullName = userInfo.full_name.split(" ");
+  const firstName = fullName[0];
+
   const getStatusGame = ({ user, opponent }) => {
     if (user.hasCompletedSecondTime && opponent.hasCompletedSecondTime)
       return "finished";
@@ -167,7 +170,9 @@ const Home = ({
         )}
         <div className={styles.feedbackContainer}>
           <p className={styles.feedbackTitle}>Feedback</p>
-          <p className={styles.feedbackExplanation}>Please let me know:</p>
+          <p className={styles.feedbackExplanation}>
+            Please let me know, {firstName}:
+          </p>
           <Input
             className={styles.input}
             placeholder="what do you like about the product and what do you miss?"
