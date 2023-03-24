@@ -22,8 +22,10 @@ export const CHOICES_ADD = "CHOICES_ADD";
 export const CHOICES_ADD_FAILED = "CHOICES_ADD_FAILED";
 export const FINAL_CHOICES_ADD = "FINAL_CHOICES_ADD";
 export const FINAL_CHOICES_ADD_FAILED = "FINAL_CHOICES_ADD_FAILED";
-export const CHOICES_FETCH = "DESTINATIONS_FETCH";
-export const CHOICES_FETCH_FAILED = "DESTINATIONS_FETCH_FAILED";
+export const CHOICES_FETCH = "CHOICES_FETCH";
+export const CHOICES_FETCH_FAILED = "CHOICES_FETCH_FAILED";
+export const FINAL_CHOICES_FETCH = "FINAL_CHOICES_FETCH";
+export const FINAL_CHOICES_FETCH_FAILED = "FINAL_CHOICES_FETCH_FAILED";
 
 export const addChoices =
   ({ choices, gameId, email }) =>
@@ -102,6 +104,38 @@ export const fetchChoices =
 
       return dispatch({
         type: CHOICES_FETCH_FAILED,
+        error: res.data[0].code,
+      });
+    }
+  };
+
+export const fetchFinalChoices =
+  ({ email, gameId }) =>
+  async (dispatch) => {
+    try {
+      const queryResult = query(
+        collection(database, finalChoices),
+        where("email", "==", email),
+        where("gameId", "==", gameId)
+      );
+
+      const response = [];
+
+      const querySnapshot = await getDocs(queryResult);
+      querySnapshot.forEach((doc) => {
+        response.push(doc.data());
+      });
+
+      return dispatch({
+        type: FINAL_CHOICES_FETCH,
+        choices: response[0].choices,
+      });
+    } catch (error) {
+      console.log(error, "error");
+      const res = error.response;
+
+      return dispatch({
+        type: FINAL_CHOICES_FETCH_FAILED,
         error: res.data[0].code,
       });
     }

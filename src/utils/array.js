@@ -7,3 +7,14 @@ export const reorder = ({ list, startIndex, endIndex }) => {
   result.splice(endIndex, 0, reorderedItem);
   return result;
 };
+
+/**
+ * Helper to sort arrays by property value
+ */
+export const sort = ({ list, property }) => {
+  const result = list.sort((a, b) => {
+    return b[property] - a[property];
+  });
+
+  return result;
+};

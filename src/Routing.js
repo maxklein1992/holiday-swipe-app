@@ -24,9 +24,12 @@ import ShowWinner from "./pages/showWinner";
 import CreateGame from "./pages/createGame";
 import { refresh } from "./redux/actions/auth";
 import { getUserId } from "./utils/jwt";
+import useMediaQuery from "./hooks/useMediaQuery";
+import { sUp } from "./constants/breakpoints";
 
 const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
   const dispatch = useDispatch();
+  const isDesktop = useMediaQuery(sUp);
 
   const [userInfoLoading, setUserInfoLoading] = React.useState(true);
 
@@ -54,18 +57,31 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
   if (authLoading || (isAuthenticated && userInfoLoading))
     return <BeatLoader color="#367fd6" />;
 
+  if (!isDesktop) {
+    return <h1>This website is only available at the moment on desktop</h1>;
+  }
+
   return (
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path={dashboard} element={<Home />} />
-          <Route path={login} element={<Login />} />
-          <Route path={createGame} element={<CreateGame />} />
-          <Route path={inviteFriend} element={<InviteFriend />} />
-          <Route path={chooseDestinations} element={<ChooseDestinations />} />
-          <Route path={showResults} element={<ShowResults />} />
-          <Route path={showWinner} element={<ShowWinner />} />
-          <Route path={notFound} element={<h1>Page not found</h1>} />
+          {!isDesktop ? (
+            <Route element={<h1>Page not found</h1>} />
+          ) : (
+            <>
+              <Route path={dashboard} element={<Home />} />
+              <Route path={login} element={<Login />} />
+              <Route path={createGame} element={<CreateGame />} />
+              <Route path={inviteFriend} element={<InviteFriend />} />
+              <Route
+                path={chooseDestinations}
+                element={<ChooseDestinations />}
+              />
+              <Route path={showResults} element={<ShowResults />} />
+              <Route path={showWinner} element={<ShowWinner />} />
+              <Route path={notFound} element={<h1>Page not found</h1>} />
+            </>
+          )}
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -109,7 +109,10 @@ const Home = ({
                       onClick={() =>
                         gameStatus === "finished"
                           ? navigate(showWinner, {
-                              state: { id: game.id },
+                              state: {
+                                id: game.id,
+                                participants: game.participants,
+                              },
                             })
                           : gameStatus === "both_second" ||
                             gameStatus === "user_second"
