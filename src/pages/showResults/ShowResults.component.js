@@ -158,9 +158,14 @@ const ShowResults = ({
                             >
                               <span>{destination.name}</span>
                               {index < 5 && (
-                                <span className={styles.rankingNumberTest}>
-                                  {index + 1}
-                                </span>
+                                <>
+                                  <span className={styles.ranking}>
+                                    {index + 1}
+                                  </span>
+                                  <span className={styles.points}>
+                                    {`${(5 - index) * 10} points`}
+                                  </span>
+                                </>
                               )}
                             </li>
                           )}

@@ -20,7 +20,7 @@
   width: 100%;
   height: pxToRem(50);
   align-items: center;
-  justify-content: center;
+  padding-left: pxToRem(40);
   border: 2px solid var(--primaryColorGray);
   background-color: white;
   user-select: none;
@@ -30,7 +30,7 @@
   }
 }
 
-.rankingNumberTest {
+.ranking {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -38,22 +38,13 @@
   font-weight: bold;
 }
 
-.rankingNumbersContainer {
+.points {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 2px;
-  left: 2px;
-}
-
-.rankingNumber {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: pxToRem(50);
-  height: pxToRem(50);
-  color: var(--primaryColorGreen);
+  bottom: 2px;
+  right: 2px;
+  color: var(--primaryColorBlue);
   font-weight: bold;
+  font-size: pxToRem(12);
 }
 
 .buttonContainer {
