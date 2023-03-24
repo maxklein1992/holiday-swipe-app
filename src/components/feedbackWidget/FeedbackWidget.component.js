@@ -19,7 +19,7 @@ const FeedbackWidget = ({ userInfo, addFeedback, className }) => {
     if (response) {
       setFeedback("");
       setFeedbackIsSubmitting(false);
-      alert("Feedback has been received by Max");
+      alert("I received your feedback, thanks! Ciao, Max!");
     }
   };
 
