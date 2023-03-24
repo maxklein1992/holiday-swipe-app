@@ -170,7 +170,7 @@ const Home = ({
           <p className={styles.feedbackExplanation}>Please let me know:</p>
           <Input
             className={styles.input}
-            placeholder="I know the design is ugly, but what do you like about the product and what do you miss?"
+            placeholder="what do you like about the product and what do you miss?"
             value={feedback}
             name="feedback"
             onChange={(value) => setFeedback(value)}
