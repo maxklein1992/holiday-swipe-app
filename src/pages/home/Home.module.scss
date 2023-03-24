@@ -2,12 +2,13 @@
 
 .component {
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 
 .welcomeMessageContainer {
   display: flex;
-  margin-bottom: pxToRem(100);
+  margin-bottom: pxToRem(130);
 }
 
 .gamesOverviewContainer {
@@ -31,4 +32,29 @@
 
 .button {
   margin-top: pxToRem(25);
+}
+
+.feedbackContainer {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 300px;
+  padding: 12px;
+  border: 2px solid var(--primaryColorGreen);
+  border-radius: 8px;
+}
+
+.feedbackTitle {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.feedbackExplanation {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.input {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

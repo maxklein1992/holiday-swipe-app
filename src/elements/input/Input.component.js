@@ -2,14 +2,14 @@ import React from "react";
 
 import styles from "./Input.module.scss";
 
-const Input = ({ className, name, value, placeholder, onChange }) => {
+const Input = ({ className, name, value, placeholder, onChange, size }) => {
   // Defensive
   if (!name || !onChange) return null;
 
-  const classNames = [styles.input, className].join(" ").trim();
+  const classNames = [styles.input, styles[size], className].join(" ").trim();
 
   return (
-    <input
+    <textarea
       className={classNames}
       type="text"
       name={name}

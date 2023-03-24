@@ -4,6 +4,7 @@ import { connect, useDispatch, useSelector } from "react-redux";
 import findIndex from "lodash.findindex";
 
 import * as gamesActions from "../../redux/actions/games";
+import * as feedbackActions from "../../redux/actions/feedback";
 import styles from "./Home.module.scss";
 import {
   login,
@@ -15,9 +16,11 @@ import {
 import Button from "../../elements/button";
 import { getUserId } from "../../utils/jwt";
 import GameCard from "../../components/gameCard";
+import Input from "../../elements/input";
 
 const Home = ({
   fetchGames,
+  addFeedback,
   isAuthenticated,
   authLoading,
   userInfo,
@@ -27,6 +30,8 @@ const Home = ({
   const dispatch = useDispatch();
 
   const [loading, setLoading] = React.useState(true);
+  const [feedbackIsSubmitting, setFeedbackIsSubmitting] = React.useState(false);
+  const [feedback, setFeedback] = React.useState("");
 
   const getStatusGame = ({ user, opponent }) => {
     if (user.hasCompletedSecondTime && opponent.hasCompletedSecondTime)
@@ -38,6 +43,16 @@ const Home = ({
     if (user.hasCompletedFirstTime) return "opponent_first";
     if (opponent.hasCompletedFirstTime) return "user_first";
     return "both_first";
+  };
+
+  const submitFeedback = async ({ feedback, name }) => {
+    setFeedbackIsSubmitting(true);
+    const response = await addFeedback({ feedback, name });
+    if (response) {
+      setFeedback("");
+      setFeedbackIsSubmitting(false);
+      alert("Feedback has been received by Max");
+    }
   };
 
   React.useEffect(() => {
@@ -150,6 +165,28 @@ const Home = ({
             </Button>
           </div>
         )}
+        <div className={styles.feedbackContainer}>
+          <p className={styles.feedbackTitle}>Feedback</p>
+          <p className={styles.feedbackExplanation}>Please let me know:</p>
+          <Input
+            className={styles.input}
+            placeholder="what do you like and what do you miss?"
+            value={feedback}
+            name="feedback"
+            onChange={(value) => setFeedback(value)}
+          />
+          <Button
+            onClick={() =>
+              submitFeedback({ feedback, name: userInfo.full_name })
+            }
+            variant="primary"
+            disabled={!feedback}
+            size="big"
+            loading={feedbackIsSubmitting}
+          >
+            Send
+          </Button>
+        </div>
       </div>
     )
   );
@@ -163,6 +200,8 @@ export default connect(
     games: state.games.games,
   }),
   (dispatch) => ({
+    addFeedback: ({ feedback, name }) =>
+      dispatch(feedbackActions.addFeedback({ feedback, name })),
     fetchGames: (email) => dispatch(gamesActions.fetchGames(email)),
   })
 )(Home);
