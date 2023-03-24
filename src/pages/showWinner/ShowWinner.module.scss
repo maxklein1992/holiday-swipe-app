@@ -2,6 +2,7 @@
 
 .component {
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 
@@ -51,4 +52,10 @@
 .points {
   font-size: pxToRem(14);
   color: var(--primaryColorBlue);
+}
+
+.feedbackWidget {
+  position: absolute;
+  top: -20px;
+  right: 0;
 }

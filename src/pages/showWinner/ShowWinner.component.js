@@ -6,6 +6,7 @@ import { useNavigate, Navigate, useLocation } from "react-router-dom";
 import * as choicesActions from "../../redux/actions/choices";
 import styles from "./ShowWinner.module.scss";
 import { sort } from "../../utils/array";
+import FeedbackWidget from "../../components/feedbackWidget";
 
 const ShowWinner = ({ fetchFinalChoices, userInfo }) => {
   const location = useLocation();
@@ -84,6 +85,7 @@ const ShowWinner = ({ fetchFinalChoices, userInfo }) => {
             </div>
           ))}
       </div>
+      <FeedbackWidget className={styles.feedbackWidget} />
     </div>
   );
 };

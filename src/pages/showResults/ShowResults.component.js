@@ -11,6 +11,7 @@ import styles from "./ShowResults.module.scss";
 import { login, inviteFriend, dashboard } from "../../constants/paths";
 import { reorder } from "../../utils/array";
 import Button from "../../elements/button";
+import FeedbackWidget from "../../components/feedbackWidget";
 
 const ShowResults = ({
   isAuthenticated,
@@ -187,6 +188,7 @@ const ShowResults = ({
             </Button>
           </div>
         </div>
+        <FeedbackWidget className={styles.feedbackWidget} />
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import { login, inviteFriend, dashboard } from "../../constants/paths";
 import styles from "./ChooseDestinations.module.scss";
 import DestinationCard from "../../components/destinationCard";
 import Button from "../../elements/button";
+import FeedbackWidget from "../../components/feedbackWidget";
 
 const ChooseDestinations = ({
   addChoices,
@@ -121,6 +122,7 @@ const ChooseDestinations = ({
           </Button>
         </>
       )}
+      <FeedbackWidget className={styles.feedbackWidget} />
     </div>
   );
 };

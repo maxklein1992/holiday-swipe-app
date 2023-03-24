@@ -35,3 +35,9 @@
   color: var(--primaryColorBlack);
   margin-bottom: pxToRem(50);
 }
+
+.feedbackWidget {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+}

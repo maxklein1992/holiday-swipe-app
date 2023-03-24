@@ -1,0 +1,23 @@
+@import "../../styles/pxToRem";
+
+.component {
+  width: 300px;
+  padding: 16px;
+  border: 2px solid var(--primaryColorGreen);
+  border-radius: 16px;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

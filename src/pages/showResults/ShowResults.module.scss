@@ -1,5 +1,9 @@
 @import "../../styles/pxToRem";
 
+.component {
+  position: relative;
+}
+
 .subTitle {
   margin-top: pxToRem(30);
   margin-bottom: pxToRem(30);
@@ -50,4 +54,10 @@
 .buttonContainer {
   margin-top: pxToRem(50);
   margin-left: pxToRem(100);
+}
+
+.feedbackWidget {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
 }
