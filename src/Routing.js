@@ -57,33 +57,20 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
   if (authLoading || (isAuthenticated && userInfoLoading))
     return <BeatLoader color="#367fd6" />;
 
-  if (!isDesktop) {
-    return <h1>This website is only available at the moment on desktop</h1>;
-  }
-
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          {!isDesktop ? (
-            <Route element={<h1>Page not found</h1>} />
-          ) : (
-            <>
-              <Route path={dashboard} element={<Home />} />
-              <Route path={login} element={<Login />} />
-              <Route path={createGame} element={<CreateGame />} />
-              <Route path={inviteFriend} element={<InviteFriend />} />
-              <Route
-                path={chooseDestinations}
-                element={<ChooseDestinations />}
-              />
-              <Route path={showResults} element={<ShowResults />} />
-              <Route path={showWinner} element={<ShowWinner />} />
-              <Route path={notFound} element={<h1>Page not found</h1>} />
-            </>
-          )}
-        </Routes>
-      </Layout>
+      <Routes>
+        <>
+          <Route path={dashboard} element={<Home />} />
+          <Route path={login} element={<Login />} />
+          <Route path={createGame} element={<CreateGame />} />
+          <Route path={inviteFriend} element={<InviteFriend />} />
+          <Route path={chooseDestinations} element={<ChooseDestinations />} />
+          <Route path={showResults} element={<ShowResults />} />
+          <Route path={showWinner} element={<ShowWinner />} />
+          <Route path={notFound} element={<h1>Page not found</h1>} />
+        </>
+      </Routes>
     </BrowserRouter>
   );
 };

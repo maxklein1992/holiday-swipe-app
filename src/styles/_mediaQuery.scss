@@ -1,0 +1,83 @@
+@mixin mediaQuery($breakpoint, $behaviour) {
+  @if $behaviour==down {
+    @if $breakpoint==xs {
+      @media only screen and (max-width: 319px) {
+        @content;
+      }
+    }
+    @if $breakpoint==s {
+      @media only screen and (max-width: 767px) {
+        @content;
+      }
+    }
+    @if $breakpoint==m {
+      @media only screen and (max-width: 1023px) {
+        @content;
+      }
+    }
+    @if $breakpoint==l {
+      @media only screen and (max-width: 1239px) {
+        @content;
+      }
+    }
+    @if $breakpoint==xl {
+      @media only screen and (max-width: 1439px) {
+        @content;
+      }
+    }
+  }
+  @if $behaviour==only {
+    @if $breakpoint==xs {
+      @media only screen and (min-width: 320px) and (max-width: 767px) {
+        @content;
+      }
+    }
+    @if $breakpoint==s {
+      @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        @content;
+      }
+    }
+    @if $breakpoint==m {
+      @media only screen and (min-width: 1024px) and (max-width: 1239px) {
+        @content;
+      }
+    }
+    @if $breakpoint==l {
+      @media only screen and (min-width: 1240px) and (max-width: 1439px) {
+        @content;
+      }
+    }
+    @if $breakpoint==xl {
+      @media only screen and (min-width: 1440px) {
+        @content;
+      }
+    }
+  }
+  @if $behaviour==up {
+    @if $breakpoint==xs {
+      @media only screen and (min-width: 320px) {
+        @content;
+      }
+    }
+    @if $breakpoint==s {
+      @media only screen and (min-width: 768px) {
+        @content;
+      }
+    }
+    @if $breakpoint==m {
+      @media only screen and (min-width: 1024px) {
+        @content;
+      }
+    }
+    @if $breakpoint==l {
+      @media only screen and (min-width: 1240px) {
+        @content;
+      }
+    }
+    @if $breakpoint==xl {
+      @media only screen and (min-width: 1440px) {
+        @content;
+      }
+    }
+  }
+}

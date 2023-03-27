@@ -1,57 +1,103 @@
+@import "../../styles/pxToRem";
+@import "../../styles/mediaQuery";
+
 .component {
   display: flex;
-  flex: 1;
-  background-color: var(--primaryColorBlue);
-  padding: 20px 20%;
+  width: 100%;
+  justify-content: center;
+}
+
+.contentContainer {
+  display: flex;
+  width: 100%;
+  height: 100px;
   justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 50px;
+  padding: 0 pxToRem(14);
+
+  @include mediaQuery(s, up) {
+    padding: 0 pxToRem(44);
+  }
+
+  @include mediaQuery(m, up) {
+    padding: 0 pxToRem(44);
+  }
+
+  @include mediaQuery(l, up) {
+    padding: 0 pxToRem(44);
+    max-width: 1888px;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mediaQuery(m, up) {
+    column-gap: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  @include mediaQuery(m, up) {
+    column-gap: 10px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 30px;
+  font-family: var(--font-family-airbnb);
+  color: white;
+  z-index: 1;
+  font-size: pxToRem(16);
+  vertical-align: center;
   text-decoration: none;
-  color: var(--primaryColorWhite);
+
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(30);
+  }
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(40);
+  }
 }
 
-.loginContainer {
-  display: flex;
-  align-items: center;
-}
+.logoSubTitle {
+  font-family: var(--font-family-airbnb);
+  color: var(--primaryColorGreen);
+  z-index: 1;
+  font-size: pxToRem(10);
 
-.loginButton {
-  color: var(--primaryColorWhite);
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: transparent;
-  padding: 10px;
-}
-
-.logoutContainer {
-  display: flex;
-  align-items: center;
-  gap: 22px;
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(20);
+  }
+  @include mediaQuery(m, up) {
+    margin-top: 10px;
+    font-size: pxToRem(18);
+  }
 }
 
 .userName {
   color: var(--primaryColorWhite);
   font-weight: bold;
-  font-size: 14px;
-}
+  font-size: pxToRem(10);
+  margin-top: pxToRem(12);
 
-.logoutButton {
-  display: flex;
-  padding: 10px 20px;
-  align-items: center;
-  background-color: var(--primaryColorLightGreen);
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-  color: var(--primaryColorBlack);
-
-  &:hover {
-    background-color: var(--secondaryColorLightGreen);
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(14);
+    margin-right: pxToRem(18);
   }
 }

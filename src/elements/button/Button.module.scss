@@ -1,38 +1,50 @@
 @import "../../styles/pxToRem";
+@import "../../styles/mediaQuery";
 
 /* Default styling */
 .button {
   display: flex;
-  padding: 10px 20px;
-  height: 50px;
   align-items: center;
   background-color: transparent;
   cursor: pointer;
   font-weight: bold;
-  font-size: pxToRem(16);
+  font-size: pxToRem(12);
+  padding: 10px 20px;
   color: var(--primaryColorBlack);
+  z-index: 10;
+  font-family: var(--font-family-airbnb);
+
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(16);
+    padding: 15px 40px;
+  }
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(18);
+    padding: 15px 40px;
+  }
 }
 
 /* Background variants */
 .primary {
-  background-color: var(--primaryColorLightGreen);
+  color: var(--primaryColorWhite);
+  background-color: var(--primaryColorGreen);
 
   &:hover {
-    background-color: var(--secondaryColorLightGreen);
+    background-color: var(--secondaryColorGreen);
   }
 }
 
 .secondary {
-  background-color: var(--primaryColorRed);
+  color: var(--primaryColorWhite);
+  background-color: var(--primaryColorGray);
 
   &:hover {
-    background-color: var(--secondaryColorRed);
+    background-color: var(--secondaryColorGray);
   }
 }
 
 .primary-inverted {
   color: var(--primaryColorWhite);
-  color: "red";
 }
 
 /* Disabled states */

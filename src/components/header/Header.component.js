@@ -10,24 +10,36 @@ import styles from "./Header.module.scss";
 const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
   return (
     <div className={styles.component}>
-      <Link className={styles.logo} to={isAuthenticated ? dashboard : login}>
-        Holiday Swipe
-      </Link>
-      {!isAuthenticated && (
-        <div className={styles.loginContainer}>
-          <Button onClick={() => signIn()} variant="primary-inverted">
-            Sign up / Log in
-          </Button>
+      <div className={styles.contentContainer}>
+        <div className={styles.logoContainer}>
+          <Link
+            className={styles.logo}
+            to={isAuthenticated ? dashboard : login}
+          >
+            holiday swipe
+          </Link>
+          <p className={styles.logoSubTitle}>A new way to travel</p>
         </div>
-      )}
-      {isAuthenticated && userInfo && (
-        <div className={styles.logoutContainer}>
-          <p className={styles.userName}>{userInfo.full_name}</p>
-          <Button onClick={() => signOut()} variant="primary">
-            Log out
-          </Button>
+        <div className={styles.buttonsContainer}>
+          {!isAuthenticated ? (
+            <>
+              <Button variant="primary-inverted" onClick={() => signIn()}>
+                Log In
+              </Button>
+              <Button variant="primary">Find Your Holiday</Button>
+            </>
+          ) : (
+            userInfo && (
+              <>
+                <p className={styles.userName}>{userInfo.full_name}</p>
+                <Button onClick={() => signOut()} variant="primary">
+                  Log out
+                </Button>
+              </>
+            )
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };

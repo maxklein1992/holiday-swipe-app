@@ -1,10 +1,18 @@
 :root {
   // PRIMARY COLORS
+
+  --primaryColorGray: #878787;
+  --primaryColorGreen: #007b86;
+
+  --secondaryColorGray: rgb(128, 128, 128);
+  --secondaryColorGreen: #0092a0;
+
+  //OLD
   --primaryColorBlue: #003b95;
   --primaryColorWhite: white;
   --primaryColorBlack: black;
-  --primaryColorGray: #ccc;
-  --primaryColorGreen: #47d073;
+  //--primaryColorGray: #ccc;
+  //--primaryColorGreen: #47d073;
   --primaryColorLightGreen: #9fe870;
   --primaryColorLightGray: #f7f7f7;
   --primaryColorOrange: #f5a623;
@@ -16,4 +24,21 @@
   --secondaryColorLightGray: lightgray;
   --secondaryColorRed: #e31c5f;
   --secondaryColorPurple: #772ce8;
+
+  // FONT FAMILY
+  --font-family-airbnb: "Airbnb";
+  --font-family-extra-light: "Inter-ExtraLight";
+  --font-family-light: "Inter-Light";
+  --font-family-regular: "Inter-Regular";
+  --font-family-medium: "Inter-Medium";
+  --font-family-semi-bold: "Inter-SemiBold";
+  --font-family-bold: "Inter-Bold";
+  --font-family-extra-bold: "Inter-ExtraBold";
+  --font-family-black: "Inter-Black";
+}
+
+//weight 100
+@font-face {
+  font-family: "Airbnb";
+  src: url("../assets/fonts/airbnb-cereal-font/AirbnbCereal_W_Bd.otf");
 }

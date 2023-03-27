@@ -1,8 +1,122 @@
 @import "../../styles/pxToRem";
+@import "../../styles/mediaQuery";
 
 .component {
   display: flex;
   flex-direction: column;
+}
+
+.backgroundImageContainer {
+  display: flex;
+  width: 100%;
+  height: 75vh;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+
+  @include mediaQuery(s, up) {
+    height: 90vh;
+  }
+  @include mediaQuery(m, up) {
+    height: 100vh;
+  }
+}
+
+.backgroundImage {
+  background-image: url("./home_page_background.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-position: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+.headerContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header {
+  font-family: var(--font-family-airbnb);
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 1;
+  font-size: pxToRem(20);
+  margin-top: pxToRem(50);
+
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(40);
+  }
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(60);
+  }
+}
+
+.subHeader {
+  font-family: var(--font-family-airbnb);
+  color: white;
+  z-index: 1;
+  margin-bottom: pxToRem(28);
+  margin-top: pxToRem(16);
+  font-size: pxToRem(16);
+
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(28);
+    margin-top: 0;
+  }
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(34);
+  }
+}
+
+.headerButtonContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  top: 5%;
+  right: 5%;
+
+  @include mediaQuery(s, up) {
+    flex-direction: row;
+  }
+  @include mediaQuery(m, up) {
+    top: 5%;
+    right: 5%;
+  }
+}
+
+.destinationTypesContainer {
+  display: flex;
+  height: 1000px;
+  flex-direction: column;
+  background-color: red;
+  margin-top: pxToRem(42);
+
+  @include mediaQuery(s, up) {
+    margin-top: pxToRem(60);
+  }
+}
+
+.destinationTypesHeader {
+  font-family: var(--font-family-airbnb);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(30);
+  }
 }
 
 .headerComponent {
