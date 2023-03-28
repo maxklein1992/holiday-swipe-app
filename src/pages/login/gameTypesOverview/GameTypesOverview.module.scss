@@ -1,0 +1,34 @@
+@import "../../../styles/pxToRem";
+@import "../../../styles/mediaQuery";
+
+.component {
+  display: flex;
+  height: 1000px;
+  flex-direction: column;
+  margin-top: pxToRem(42);
+
+  @include mediaQuery(s, up) {
+    margin-top: pxToRem(60);
+  }
+}
+
+.header {
+  font-family: var(--font-family-airbnb);
+  font-size: pxToRem(18);
+  margin-bottom: pxToRem(40);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(26);
+  }
+}
+
+.gameTypesList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.gameTypesTitle {
+  font-size: pxToRem(21);
+  margin-bottom: pxToRem(30);
+}

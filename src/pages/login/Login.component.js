@@ -7,11 +7,11 @@ import GameTypeCard from "../../components/gameTypeCard";
 import styles from "./Login.module.scss";
 import * as authActions from "../../redux/actions/auth";
 import GameTypes from "../../constants/gameTypes";
-
-import Image from "./home_page_background.png";
 import Button from "../../elements/button";
 import Container from "../../elements/container";
 import Header from "../../components/header/Header.component";
+import FrontPage from "./frontPage/FrontPage.component";
+import GameTypesOverview from "./gameTypesOverview/GameTypesOverview";
 
 const Login = ({ isAuthenticated, authLoading }) => {
   const navigate = useNavigate();
@@ -62,20 +62,8 @@ const Login = ({ isAuthenticated, authLoading }) => {
     //   </div>
     // </div>
     <div className={styles.component}>
-      <div className={styles.backgroundImageContainer}>
-        <div className={styles.backgroundImage} />
-        <div className={styles.headerContainer}>
-          <Header />
-        </div>
-        <p className={styles.header}>What is your dream holiday?</p>
-        <p className={styles.subHeader}>Let's find it</p>
-        <Button variant="secondary">How It Works</Button>
-      </div>
-      <Container>
-        <div className={styles.destinationTypesContainer}>
-          <p className={styles.destinationTypesHeader}>Destination Types</p>
-        </div>
-      </Container>
+      <FrontPage />
+      <GameTypesOverview />
     </div>
   );
 };

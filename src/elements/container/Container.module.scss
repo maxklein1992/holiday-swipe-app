@@ -15,10 +15,12 @@
 
   @include mediaQuery(l, only) {
     margin: 0 80px;
+    background-color: blue;
   }
 
   @include mediaQuery(xl, only) {
     margin: 0 auto;
     max-width: 1288px;
+    background-color: orange;
   }
 }

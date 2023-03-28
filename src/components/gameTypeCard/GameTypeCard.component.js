@@ -8,16 +8,20 @@ const GameTypeCard = ({ onClick, image, title, disabled }) => {
 
   return (
     <button
-      className={[
-        styles.journeyTypeContainer,
-        disabled && styles.disabled,
-      ].join(" ")}
+      className={[styles.component, disabled && styles.disabled].join(" ")}
       onClick={!disabled && onClick && onClick}
     >
       <div className={styles.imageContainer}>
-        <img className={styles.image} src={image} />
+        <img
+          className={styles.image}
+          src={
+            "https://darkrome.com/media/20502/rome-colosseum-city-tour-of-rome.jpg"
+          }
+        />
       </div>
-      <p className={styles.journeyTypeTitle}>{title}</p>
+      <div className={styles.textContainer}>
+        <p className={styles.gameTypeTitle}>{title}</p>
+      </div>
     </button>
   );
 };
