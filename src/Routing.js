@@ -61,13 +61,55 @@ const Routing = ({ fetchUserdata, isAuthenticated, authLoading }) => {
     <BrowserRouter>
       <Routes>
         <>
-          <Route path={dashboard} element={<Home />} />
           <Route path={login} element={<Login />} />
-          <Route path={createGame} element={<CreateGame />} />
-          <Route path={inviteFriend} element={<InviteFriend />} />
-          <Route path={chooseDestinations} element={<ChooseDestinations />} />
-          <Route path={showResults} element={<ShowResults />} />
-          <Route path={showWinner} element={<ShowWinner />} />
+          <Route
+            path={dashboard}
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+          <Route
+            path={createGame}
+            element={
+              <Layout>
+                <CreateGame />
+              </Layout>
+            }
+          />
+          <Route
+            path={inviteFriend}
+            element={
+              <Layout>
+                <InviteFriend />
+              </Layout>
+            }
+          />
+          <Route
+            path={chooseDestinations}
+            element={
+              <Layout>
+                <ChooseDestinations />
+              </Layout>
+            }
+          />
+          <Route
+            path={showResults}
+            element={
+              <Layout>
+                <ShowResults />
+              </Layout>
+            }
+          />
+          <Route
+            path={showWinner}
+            element={
+              <Layout>
+                <ShowWinner />
+              </Layout>
+            }
+          />
           <Route path={notFound} element={<h1>Page not found</h1>} />
         </>
       </Routes>

@@ -5,24 +5,62 @@
   display: flex;
   height: 1000px;
   flex-direction: column;
-  margin-top: pxToRem(42);
+  margin-top: pxToRem(48);
 
   @include mediaQuery(s, up) {
-    margin-top: pxToRem(60);
+    margin-top: pxToRem(30);
+  }
+}
+
+.subHeader {
+  font-family: var(--font-family-airbnb-bd);
+  text-transform: uppercase;
+  color: var(--primaryColorGray);
+  font-size: pxToRem(12);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(16);
   }
 }
 
 .header {
   font-family: var(--font-family-airbnb-bd);
   font-size: pxToRem(18);
-  margin-bottom: pxToRem(40);
+  margin-bottom: pxToRem(20);
 
   @include mediaQuery(m, up) {
-    font-size: pxToRem(26);
+    font-size: pxToRem(30);
   }
 }
 
-.gameTypesList {
+.gameTypeList {
+  display: flex;
+}
+
+.gameTypeContent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.gameTypeHeader {
+  font-size: pxToRem(12);
+  margin-bottom: pxToRem(10);
+  font-family: var(--font-family-airbnb-bd);
+  color: var(--primaryColorBlack);
+  width: min-content;
+  border-bottom: 2px solid var(--primaryColorBlue);
+
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(14);
+  }
+}
+
+.gameTypeContainer {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
@@ -34,7 +72,7 @@
 
   @include mediaQuery(l, up) {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 20px;
   }
 }
 

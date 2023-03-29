@@ -5,6 +5,11 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  background-color: var(--primaryColorGreen);
+
+  &.isTransparent {
+    background-color: transparent;
+  }
 }
 
 .contentContainer {
@@ -43,6 +48,11 @@
     justify-content: flex-start;
     align-items: center;
   }
+}
+
+.rightSide {
+  display: flex;
+  align-items: flex-end;
 }
 
 .buttonsContainer {
@@ -88,6 +98,10 @@
     margin-top: 10px;
     font-size: pxToRem(18);
   }
+
+  &.isWhite {
+    color: var(--primaryColorWhite);
+  }
 }
 
 .userName {
@@ -98,6 +112,6 @@
 
   @include mediaQuery(s, up) {
     font-size: pxToRem(14);
-    margin-right: pxToRem(18);
+    margin-top: 0;
   }
 }

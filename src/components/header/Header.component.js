@@ -7,9 +7,19 @@ import Button from "../../elements/button";
 import * as authActions from "../../redux/actions/auth";
 import styles from "./Header.module.scss";
 
-const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
+const Header = ({
+  signOut,
+  signIn,
+  isAuthenticated,
+  userInfo,
+  transparent,
+}) => {
   return (
-    <div className={styles.component}>
+    <div
+      className={[styles.component, transparent && styles.isTransparent].join(
+        " "
+      )}
+    >
       <div className={styles.contentContainer}>
         <div className={styles.logoContainer}>
           <Link
@@ -18,26 +28,35 @@ const Header = ({ signOut, signIn, isAuthenticated, userInfo }) => {
           >
             holiday swipe
           </Link>
-          <p className={styles.logoSubTitle}>A new way to travel</p>
+          <p
+            className={[
+              styles.logoSubTitle,
+              !transparent && styles.isWhite,
+            ].join(" ")}
+          >
+            A new way to travel
+          </p>
         </div>
-        <div className={styles.buttonsContainer}>
-          {!isAuthenticated ? (
-            <>
-              <Button variant="primary-inverted" onClick={() => signIn()}>
-                Log In
-              </Button>
-              <Button variant="primary">Find Your Holiday</Button>
-            </>
-          ) : (
-            userInfo && (
+        <div className={styles.rightSide}>
+          <div className={styles.buttonsContainer}>
+            {!isAuthenticated ? (
               <>
-                <p className={styles.userName}>{userInfo.full_name}</p>
-                <Button onClick={() => signOut()} variant="primary">
-                  Log out
+                <Button variant="primary-inverted" onClick={() => signIn()}>
+                  Log In
                 </Button>
+                <Button variant="primary">Find Your Holiday</Button>
               </>
-            )
-          )}
+            ) : (
+              userInfo && (
+                <>
+                  <p className={styles.userName}>{userInfo.full_name}</p>
+                  <Button onClick={() => signOut()} variant="primary-inverted">
+                    Log out
+                  </Button>
+                </>
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>

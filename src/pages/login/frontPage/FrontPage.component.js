@@ -6,10 +6,12 @@ import Button from "../../../elements/button";
 
 const FrontPage = () => {
   return (
-    <div className={styles.backgroundImageContainer}>
-      <div className={styles.backgroundImage} />
+    <div className={styles.component}>
+      <div className={styles.backgroundImageContainer}>
+        <div className={styles.backgroundImage} />
+      </div>
       <div className={styles.headerContainer}>
-        <Header />
+        <Header transparent={true} />
       </div>
       <p className={styles.header}>What is your dream holiday?</p>
       <p className={styles.subHeader}>Let's find it</p>

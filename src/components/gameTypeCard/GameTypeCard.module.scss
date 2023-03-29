@@ -77,7 +77,7 @@
   font-family: var(--font-family-airbnb-bdk);
 
   @include mediaQuery(m, up) {
-    font-size: pxToRem(13);
+    font-size: pxToRem(14);
   }
 }
 
