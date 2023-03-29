@@ -13,31 +13,37 @@ import SpainImage from "./spain.png";
 import ItalyImage from "./italy.png";
 import ItalyImage2 from "./italy2.png";
 
-const randomSelectBackgroundImage = () => {
-  const backgroundImages = [
-    PositanoImage,
-    FlorianopolisImage,
-    FlorianopolisImage2,
-    FlorianopolisImage3,
-    RioDeJaneiroImage,
-    SpainImage,
-    ItalyImage,
-    ItalyImage2,
-  ];
-
-  const randomNumber = Math.floor(Math.random() * backgroundImages.length);
-
-  return backgroundImages[randomNumber];
-};
-
 const FrontPage = () => {
+  const [backgroundImage, setBackgroundImage] = React.useState(null);
+
+  const selectRandomBackgroundImage = () => {
+    const backgroundImages = [
+      PositanoImage,
+      FlorianopolisImage,
+      FlorianopolisImage2,
+      FlorianopolisImage3,
+      RioDeJaneiroImage,
+      SpainImage,
+      ItalyImage,
+      ItalyImage2,
+    ];
+
+    const randomNumber = Math.floor(Math.random() * backgroundImages.length);
+
+    return backgroundImages[randomNumber];
+  };
+
+  React.useEffect(() => {
+    setBackgroundImage(selectRandomBackgroundImage());
+  }, []);
+
   return (
     <div className={styles.component}>
       <div className={styles.backgroundImageContainer}>
         <div
           className={styles.backgroundImage}
           style={{
-            backgroundImage: "url(" + randomSelectBackgroundImage() + ")",
+            backgroundImage: "url(" + backgroundImage + ")",
           }}
         />
       </div>
