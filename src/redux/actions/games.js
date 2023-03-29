@@ -57,10 +57,8 @@ export const fetchGames = (email) => async (dispatch) => {
 };
 
 export const createGame =
-  ({ userEmail, email }) =>
+  ({ userEmail, email, id }) =>
   async (dispatch) => {
-    const dummyGameType = 0;
-
     try {
       const newDoc = {
         emails: [userEmail, email],
@@ -78,7 +76,7 @@ export const createGame =
         ],
         created_by: userEmail,
         created_date: null,
-        game_type: dummyGameType,
+        game_type: id,
       };
 
       await addDoc(collection(database, "games"), newDoc);

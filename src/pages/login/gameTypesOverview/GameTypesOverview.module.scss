@@ -13,7 +13,7 @@
 }
 
 .header {
-  font-family: var(--font-family-airbnb);
+  font-family: var(--font-family-airbnb-bd);
   font-size: pxToRem(18);
   margin-bottom: pxToRem(40);
 
@@ -24,11 +24,24 @@
 
 .gameTypesList {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+
+  @include mediaQuery(s, up) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  @include mediaQuery(l, up) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
 }
 
 .gameTypesTitle {
   font-size: pxToRem(21);
   margin-bottom: pxToRem(30);
+
+  @include mediaQuery(m, up) {
+  }
 }

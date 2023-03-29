@@ -12,6 +12,13 @@ import styles from "./ChooseDestinations.module.scss";
 import DestinationCard from "../../components/destinationCard";
 import Button from "../../elements/button";
 import FeedbackWidget from "../../components/feedbackWidget";
+import {
+  spanishPlaces,
+  portuguesePlaces,
+  italianPlaces,
+  europeanCountries,
+  worldCountries,
+} from "../../constants/destinations";
 
 const ChooseDestinations = ({
   addChoices,
@@ -24,6 +31,7 @@ const ChooseDestinations = ({
   const location = useLocation();
   const navigate = useNavigate();
   const gameId = location.state.id;
+  const gameType = location.state.gameType;
 
   const [loading, setLoading] = React.useState(true);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -31,15 +39,37 @@ const ChooseDestinations = ({
   const [swipeCount, setSwipeCount] = React.useState(0);
   const [choices, setChoices] = React.useState([]);
 
+  // React.useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const response = await fetchDestinations();
+
+  //       if (response && response.destinations) {
+  //         setLoading(false);
+  //         setDestinations(response.destinations);
+  //       }
+  //     } catch (error) {
+  //       // eslint-disable-next-line no-console
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, []);
+
   React.useEffect(() => {
     (async () => {
       try {
-        const response = await fetchDestinations();
-
-        if (response && response.destinations) {
-          setLoading(false);
-          setDestinations(response.destinations);
-        }
+        setLoading(false);
+        setDestinations(
+          gameType === "portugal"
+            ? portuguesePlaces
+            : gameType === "spain"
+            ? spanishPlaces
+            : gameType === "italy"
+            ? italianPlaces
+            : gameType === "world"
+            ? worldCountries
+            : gameType === "europe" && europeanCountries
+        );
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
@@ -79,7 +109,7 @@ const ChooseDestinations = ({
     return <Navigate to={login} replace />;
   }
 
-  if (loading) return null;
+  //if (loading) return null;
 
   return (
     <div className={styles.component}>
@@ -139,6 +169,6 @@ export default connect(
     fetchGame: ({ id }) => dispatch(gamesActions.fetchGame({ id })),
     addChoices: ({ choices, gameId, email }) =>
       dispatch(choicesActions.addChoices({ choices, gameId, email })),
-    fetchDestinations: () => dispatch(destinationsActions.fetchDestinations()),
+    //fetchDestinations: () => dispatch(destinationsActions.fetchDestinations()),
   })
 )(ChooseDestinations);

@@ -18,7 +18,8 @@ const GameTypesOverview = () => {
               key={`card ${type.title}`}
               image={type.url}
               title={type.title}
-              disabled
+              description={type.description}
+              icon={type.icon}
             />
           ))}
         </div>

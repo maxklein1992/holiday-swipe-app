@@ -1,12 +1,14 @@
 @import "../../styles/pxToRem";
 
 .component {
+  margin-top: 100px;
   display: flex;
   position: relative;
-  width: pxToRem(450);
-  height: pxToRem(450);
+  width: pxToRem(650);
+  height: pxToRem(650);
   cursor: pointer;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
   border-radius: 16px;
 }
 

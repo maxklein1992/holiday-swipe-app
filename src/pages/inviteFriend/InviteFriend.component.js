@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { connect, useDispatch, useSelector } from "react-redux";
 
 import * as gameActions from "../../redux/actions/games";
@@ -10,11 +10,12 @@ import Input from "../../elements/input";
 
 const InviteFriend = ({ isAuthenticated, createGame, userEmail }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const gameTypeId = location.state.gameTypeId;
 
   const [email, setEmail] = React.useState("");
   const [loading, setLoading] = React.useState(false);
-
-  console.log(email, "usestate");
 
   if (isAuthenticated === false) {
     return <Navigate to={login} replace />;
@@ -22,7 +23,7 @@ const InviteFriend = ({ isAuthenticated, createGame, userEmail }) => {
 
   const onSubmit = async () => {
     setLoading(true);
-    const response = await createGame({ userEmail, email });
+    const response = await createGame({ userEmail, email, id: gameTypeId });
 
     if (response) setLoading(false);
 
@@ -62,6 +63,7 @@ export default connect(
     userEmail: state.user.personal_data.email,
   }),
   (dispatch) => ({
-    createGame: (emails) => dispatch(gameActions.createGame(emails)),
+    createGame: ({ userEmail, email, id }) =>
+      dispatch(gameActions.createGame({ userEmail, email, id })),
   })
 )(InviteFriend);

@@ -1,17 +1,16 @@
+@import "../../styles/pxToRem";
+@import "../../styles/mediaQuery";
+
 .component {
   display: flex;
   justify-content: center;
+  position: relative;
   align-items: center;
   background-color: var(--primaryColorWhite);
-  width: 350px;
-  height: 90px;
-  //border: 2px solid var(--secondaryColorLightGray);
-  border-radius: 16px;
+  height: 110px;
+  border: 1px solid var(--secondaryColorLightGray);
+  border-radius: 8px;
   cursor: pointer;
-
-  &.disabled {
-    cursor: unset;
-  }
 
   &:hover {
     background-color: var(--primaryColorLightGray);
@@ -20,13 +19,17 @@
       background-color: var(--primaryColorWhite);
     }
   }
+
+  @include mediaQuery(s, up) {
+    border-radius: 16px;
+  }
 }
 
 .imageContainer {
   display: flex;
   position: relative;
   flex: 1;
-  height: 90px;
+  height: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -35,19 +38,58 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  @include mediaQuery(s, up) {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+  }
 }
 
 .textContainer {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
   flex: 3;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: pxToRem(10) pxToRem(15);
 }
 
-.gameTypeTitle {
+.title {
   font-weight: bold;
   color: var(--primaryColorBlack);
-  font-size: 16px;
+  font-size: pxToRem(16);
+  font-family: var(--font-family-airbnb-bdk);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(18);
+  }
+}
+
+.description {
+  color: var(--primaryColorBlack);
+  margin-top: pxToRem(4);
+  text-align: left;
+  font-size: pxToRem(12);
+  font-family: var(--font-family-airbnb-bdk);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(13);
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+
+  @include mediaQuery(m, up) {
+    width: 30px;
+    height: 30px;
+  }
 }

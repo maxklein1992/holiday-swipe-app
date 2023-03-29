@@ -20,17 +20,16 @@ const CreateGame = ({ isAuthenticated }) => {
         <h1>Select your type of journey...</h1>
       </div>
       <div className={styles.journeyTypesContainer}>
-        {GameTypes.map(
-          (type) =>
-            type.available && (
-              <GameTypeCard
-                key={`card ${type.title}`}
-                image={type.url}
-                title={type.title}
-                onClick={() => navigate(inviteFriend, { replace: true })}
-              />
-            )
-        )}
+        {GameTypes.map((type) => (
+          <GameTypeCard
+            key={`card ${type.title}`}
+            image={type.url}
+            title={type.title}
+            onClick={() =>
+              navigate(inviteFriend, { state: { gameTypeId: type.id } })
+            }
+          />
+        ))}
       </div>
     </div>
   );

@@ -99,7 +99,6 @@ const Home = ({
                     user: game.participants[index],
                     opponent: game.participants[index === 0 ? 1 : 0],
                   });
-
                   return (
                     <GameCard
                       key={`key ${game.id}`}
@@ -125,7 +124,7 @@ const Home = ({
                           : gameStatus === "both_first" ||
                             gameStatus === "user_first"
                           ? navigate(chooseDestinations, {
-                              state: { id: game.id },
+                              state: { id: game.id, gameType: game.game_type },
                             })
                           : alert(
                               "We are waiting for the other participants to finish"
