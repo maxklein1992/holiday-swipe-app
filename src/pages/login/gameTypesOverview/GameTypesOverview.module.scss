@@ -25,7 +25,7 @@
 
 .header {
   font-family: var(--font-family-airbnb-bd);
-  font-size: pxToRem(18);
+  font-size: pxToRem(14);
   margin-bottom: pxToRem(20);
 
   @include mediaQuery(m, up) {
