@@ -13,12 +13,57 @@ import Header from "../../components/header/Header.component";
 import FrontPage from "./frontPage/FrontPage.component";
 import GameTypesOverview from "./gameTypesOverview/GameTypesOverview";
 
+import PositanoImage from "./frontPage/positano.png";
+import FlorianopolisImage from "./frontPage/florianopolis.png";
+import FlorianopolisImage2 from "./frontPage/florianopolis2.png";
+import FlorianopolisImage3 from "./frontPage/florianopolis3.png";
+import RioDeJaneiroImage from "./frontPage/riodejaneiro.png";
+import SpainImage from "./frontPage/spain.png";
+import ItalyImage from "./frontPage/italy.png";
+import ItalyImage2 from "./frontPage/italy2.png";
+
 const Login = ({ isAuthenticated, authLoading }) => {
+  const [backgroundImage, setBackgroundImage] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+
+  const selectRandomBackgroundImage = () => {
+    const backgroundImages = [
+      PositanoImage,
+      FlorianopolisImage,
+      FlorianopolisImage2,
+      FlorianopolisImage3,
+      RioDeJaneiroImage,
+      SpainImage,
+      ItalyImage,
+      ItalyImage2,
+    ];
+
+    const randomNumber = Math.floor(Math.random() * backgroundImages.length);
+
+    return backgroundImages[randomNumber];
+  };
+
+  React.useEffect(() => {
+    (async () => {
+      try {
+        setLoading(true);
+        const backgroundImage = await selectRandomBackgroundImage();
+        setBackgroundImage(backgroundImage);
+        setLoading(false);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      }
+    })();
+  }, []);
+
   const navigate = useNavigate();
 
   React.useEffect(() => {
     if (isAuthenticated && authLoading === false) navigate(dashboard);
   }, [isAuthenticated]);
+
+  if (loading) return null;
 
   return (
     // <div className={styles.component}>
@@ -62,7 +107,7 @@ const Login = ({ isAuthenticated, authLoading }) => {
     //   </div>
     // </div>
     <div className={styles.component}>
-      <FrontPage />
+      <FrontPage backgroundImage={backgroundImage} />
       <GameTypesOverview />
     </div>
   );

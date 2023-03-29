@@ -4,39 +4,7 @@ import styles from "./FrontPage.module.scss";
 import Header from "../../../components/header/Header.component";
 import Button from "../../../elements/button";
 
-import PositanoImage from "./positano.png";
-import FlorianopolisImage from "./florianopolis.png";
-import FlorianopolisImage2 from "./florianopolis2.png";
-import FlorianopolisImage3 from "./florianopolis3.png";
-import RioDeJaneiroImage from "./riodejaneiro.png";
-import SpainImage from "./spain.png";
-import ItalyImage from "./italy.png";
-import ItalyImage2 from "./italy2.png";
-
-const FrontPage = () => {
-  const [backgroundImage, setBackgroundImage] = React.useState(null);
-
-  const selectRandomBackgroundImage = () => {
-    const backgroundImages = [
-      PositanoImage,
-      FlorianopolisImage,
-      FlorianopolisImage2,
-      FlorianopolisImage3,
-      RioDeJaneiroImage,
-      SpainImage,
-      ItalyImage,
-      ItalyImage2,
-    ];
-
-    const randomNumber = Math.floor(Math.random() * backgroundImages.length);
-
-    return backgroundImages[randomNumber];
-  };
-
-  React.useEffect(() => {
-    setBackgroundImage(selectRandomBackgroundImage());
-  }, []);
-
+const FrontPage = ({ backgroundImage }) => {
   return (
     <div className={styles.component}>
       <div className={styles.backgroundImageContainer}>
