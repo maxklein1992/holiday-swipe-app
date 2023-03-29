@@ -16,16 +16,16 @@
   font-family: var(--font-family-airbnb-bd);
   text-transform: uppercase;
   color: var(--primaryColorGray);
-  font-size: pxToRem(12);
+  font-size: pxToRem(14);
 
   @include mediaQuery(m, up) {
-    font-size: pxToRem(16);
+    font-size: pxToRem(18);
   }
 }
 
 .header {
   font-family: var(--font-family-airbnb-bd);
-  font-size: pxToRem(14);
+  font-size: pxToRem(18);
   margin-bottom: pxToRem(20);
 
   @include mediaQuery(m, up) {

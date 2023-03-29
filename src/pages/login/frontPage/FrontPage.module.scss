@@ -37,7 +37,7 @@
 }
 
 .backgroundImage {
-  background-image: url("./positano.png");
+  //background-image: url("./positano.png");
   position: absolute;
   background-position: center;
   bottom: 0;
@@ -74,7 +74,7 @@
   text-transform: uppercase;
   text-align: center;
   z-index: 1;
-  font-size: pxToRem(20);
+  font-size: pxToRem(28);
   margin-top: pxToRem(50);
 
   @include mediaQuery(s, up) {
@@ -91,7 +91,7 @@
   z-index: 1;
   margin-bottom: pxToRem(28);
   margin-top: pxToRem(16);
-  font-size: pxToRem(16);
+  font-size: pxToRem(18);
 
   @include mediaQuery(s, up) {
     font-size: pxToRem(28);

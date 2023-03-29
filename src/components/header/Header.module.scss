@@ -73,7 +73,7 @@
   font-family: var(--font-family-airbnb-bd);
   color: white;
   z-index: 1;
-  font-size: pxToRem(16);
+  font-size: pxToRem(18);
   vertical-align: center;
   text-decoration: none;
 
@@ -89,7 +89,7 @@
   font-family: var(--font-family-airbnb-bd);
   color: var(--primaryColorGreen);
   z-index: 1;
-  font-size: pxToRem(10);
+  font-size: pxToRem(12);
 
   @include mediaQuery(s, up) {
     font-size: pxToRem(20);
