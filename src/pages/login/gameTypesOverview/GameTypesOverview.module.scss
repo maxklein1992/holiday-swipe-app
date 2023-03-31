@@ -3,9 +3,9 @@
 
 .component {
   display: flex;
-  height: 1000px;
   flex-direction: column;
   margin-top: pxToRem(48);
+  margin-bottom: pxToRem(20);
 
   @include mediaQuery(s, up) {
     margin-top: pxToRem(30);

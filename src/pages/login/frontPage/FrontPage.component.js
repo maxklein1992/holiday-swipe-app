@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./FrontPage.module.scss";
 import Header from "../../../components/header/Header.component";
 import Button from "../../../elements/button";
+import { data } from "./FrontPage.data";
 
 const FrontPage = ({ backgroundImage }) => {
   return (
@@ -18,9 +19,18 @@ const FrontPage = ({ backgroundImage }) => {
       <div className={styles.headerContainer}>
         <Header transparent={true} />
       </div>
-      <p className={styles.header}>What is your dream holiday?</p>
-      <p className={styles.subHeader}>Let's find it</p>
-      <Button variant="secondary">How It Works</Button>
+      <p className={styles.header}>{data.header}</p>
+      <p className={styles.subHeader}>{data.subHeader}</p>
+      <Button
+        variant="secondary"
+        onClick={() =>
+          document
+            .querySelector(`#howItWorks`)
+            .scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        How It Works
+      </Button>
     </div>
   );
 };

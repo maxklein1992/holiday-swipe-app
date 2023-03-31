@@ -11,20 +11,23 @@ import Button from "../../elements/button";
 import Container from "../../elements/container";
 import Header from "../../components/header/Header.component";
 import FrontPage from "./frontPage/FrontPage.component";
-import GameTypesOverview from "./gameTypesOverview/GameTypesOverview";
+import GameTypesOverview from "./gameTypesOverview/GameTypesOverview.component";
 
-import PositanoImage from "./frontPage/positano.png";
-import FlorianopolisImage from "./frontPage/florianopolis.png";
-import FlorianopolisImage2 from "./frontPage/florianopolis2.png";
-import FlorianopolisImage3 from "./frontPage/florianopolis3.png";
-import RioDeJaneiroImage from "./frontPage/riodejaneiro.png";
-import SpainImage from "./frontPage/spain.png";
-import ItalyImage from "./frontPage/italy.png";
-import ItalyImage2 from "./frontPage/italy2.png";
+import PositanoImage from "../../assets/images/positano.png";
+import FlorianopolisImage from "../../assets/images/florianopolis.png";
+import FlorianopolisImage2 from "../../assets/images/florianopolis2.png";
+import FlorianopolisImage3 from "../../assets/images/florianopolis3.png";
+import RioDeJaneiroImage from "../../assets/images/riodejaneiro.png";
+import SpainImage from "../../assets/images/spain.png";
+import ItalyImage from "../../assets/images/italy.png";
+import ItalyImage2 from "../../assets/images/italy2.png";
+import CoupleKissImage from "../../assets/images/couple_kiss.png";
+import { getRandomNumber } from "../../utils/randomNumber";
+import HowItWorks from "./howItWorks";
 
 const Login = ({ isAuthenticated, authLoading }) => {
   const [backgroundImage, setBackgroundImage] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
 
   const selectRandomBackgroundImage = () => {
     const backgroundImages = [
@@ -36,9 +39,9 @@ const Login = ({ isAuthenticated, authLoading }) => {
       SpainImage,
       ItalyImage,
       ItalyImage2,
+      CoupleKissImage,
     ];
-
-    const randomNumber = Math.floor(Math.random() * backgroundImages.length);
+    const randomNumber = getRandomNumber(backgroundImages.length);
 
     return backgroundImages[randomNumber];
   };
@@ -66,48 +69,9 @@ const Login = ({ isAuthenticated, authLoading }) => {
   if (loading) return null;
 
   return (
-    // <div className={styles.component}>
-    //   {/* <div className={styles.headerComponent}>
-    //     <h1 className={styles.headerTitle}>
-    //       Find your next holiday destination
-    //     </h1>
-    //     <h1 className={styles.subTitle}>
-    //       By swiping through holiday locations with your partner, friend or
-    //       family member
-    //     </h1>
-    //   </div>
-    //   <div className={styles.gameTypesComponent}>
-    //     <h1 className={styles.gameTypesTitle}>
-    //       Choose your type of <span className={styles.isBlue}>holiday</span>
-    //     </h1>
-    //     <div className={styles.gameTypesList}>
-    //       {GameTypes.map((type) => (
-    //         <GameTypeCard
-    //           key={`card ${type.title}`}
-    //           image={type.url}
-    //           title={type.title}
-    //           disabled
-    //         />
-    //       ))}
-    //     </div>
-    //   </div> */}
-    //   <img
-    //     src="/home_page_background.png"
-    //     style={{ width: "100%", height: "100%" }}
-    //   />
-    //   <div
-    //     style={{
-    //       backgroundImage: "url(" + Image + ")",
-    //       backgroundSize: "auto",
-    //       width: "100%",
-    //       height: "100%",
-    //     }}
-    //   >
-    //     Background Image
-    //   </div>
-    // </div>
     <div className={styles.component}>
       <FrontPage backgroundImage={backgroundImage} />
+      <HowItWorks />
       <GameTypesOverview />
     </div>
   );

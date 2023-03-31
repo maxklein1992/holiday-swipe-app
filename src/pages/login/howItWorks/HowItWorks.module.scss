@@ -1,0 +1,148 @@
+@import "../../../styles/pxToRem";
+@import "../../../styles/mediaQuery";
+
+.component {
+  display: flex;
+  flex-direction: column;
+  padding-top: pxToRem(48);
+  margin-bottom: pxToRem(48);
+
+  @include mediaQuery(s, up) {
+    margin-top: pxToRem(30);
+    margin-bottom: pxToRem(50);
+  }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.subHeader {
+  font-family: var(--font-family-airbnb-bd);
+  text-transform: uppercase;
+  align-self: center;
+  color: var(--primaryColorGray);
+  font-size: pxToRem(14);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(18);
+  }
+}
+
+.header {
+  font-family: var(--font-family-airbnb-bd);
+  font-size: pxToRem(18);
+  align-self: center;
+  margin-bottom: pxToRem(20);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(30);
+  }
+}
+
+.howContainer {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  margin-top: pxToRem(30);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  height: 100%;
+}
+
+.rightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  width: 400px;
+  padding-top: 20px;
+}
+
+.imageContainer {
+  position: relative;
+  animation: swipe-hand 8s ease-in-out infinite;
+}
+
+@keyframes swipe-hand {
+  25% {
+    transform: rotateZ(-10deg) translate3d(-80px, 0px, 0px);
+  }
+  50% {
+    transform: translate(0) rotate(0);
+  }
+  75% {
+    transform: rotateZ(10deg) translate3d(80px, 0px, 0px);
+  }
+  100% {
+    transform: translate(0) rotate(0);
+  }
+}
+
+.image {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+}
+
+.name {
+  position: absolute;
+  bottom: pxToRem(30);
+  left: pxToRem(30);
+  font-size: pxToRem(25);
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  width: 100%;
+  padding: 30px 150px;
+  position: relative;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.gif {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: transparent;
+  animation: opacity-gif 8s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes opacity-gif {
+  25% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0;
+  }
+}

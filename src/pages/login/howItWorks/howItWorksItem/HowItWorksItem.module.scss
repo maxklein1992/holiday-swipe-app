@@ -1,0 +1,41 @@
+@import "../../../../styles/pxToRem";
+@import "../../../../styles/mediaQuery";
+
+.component {
+  display: flex;
+  width: 100%;
+  margin-bottom: pxToRem(28);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 26px;
+}
+
+.icon {
+  width: 34px;
+  height: 34px;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  padding-right: 80px;
+}
+
+.title {
+  font-family: var(--font-family-airbnb-bd);
+  font-size: pxToRem(24);
+  margin-bottom: pxToRem(6);
+}
+
+.description {
+  font-family: var(--font-family-airbnb-bdk);
+  font-size: pxToRem(14);
+  color: var(--primaryColorGray);
+}
