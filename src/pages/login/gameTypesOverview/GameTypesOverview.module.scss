@@ -9,6 +9,7 @@
 
   @include mediaQuery(s, up) {
     margin-top: pxToRem(30);
+    margin-bottom: pxToRem(80);
   }
 }
 

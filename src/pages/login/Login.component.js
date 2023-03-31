@@ -71,8 +71,8 @@ const Login = ({ isAuthenticated, authLoading }) => {
   return (
     <div className={styles.component}>
       <FrontPage backgroundImage={backgroundImage} />
-      <HowItWorks />
       <GameTypesOverview />
+      <HowItWorks />
     </div>
   );
 };
