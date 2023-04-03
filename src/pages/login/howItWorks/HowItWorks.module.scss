@@ -4,13 +4,8 @@
 .component {
   display: flex;
   flex-direction: column;
-  padding-top: pxToRem(48);
+  padding-top: pxToRem(30);
   width: 100%;
-
-  @include mediaQuery(s, up) {
-    padding-top: pxToRem(30);
-    margin-bottom: pxToRem(50);
-  }
 }
 
 .headerContainer {

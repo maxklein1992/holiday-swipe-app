@@ -4,12 +4,12 @@
 .component {
   display: flex;
   flex-direction: column;
-  margin-top: pxToRem(48);
+  margin-top: pxToRem(35);
   margin-bottom: pxToRem(20);
 
   @include mediaQuery(s, up) {
-    margin-top: pxToRem(30);
-    margin-bottom: pxToRem(80);
+    margin-top: pxToRem(60);
+    margin-bottom: pxToRem(60);
   }
 }
 
