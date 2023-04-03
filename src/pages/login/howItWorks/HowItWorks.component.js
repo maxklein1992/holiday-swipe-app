@@ -20,7 +20,7 @@ const HowItWorks = () => {
         <div className={styles.howContainer}>
           <div className={styles.contentContainer}>
             {data.steps.map((item) => (
-              <HowItWorksItem item={item} />
+              <HowItWorksItem item={item} key={item.title} />
             ))}
           </div>
           <div className={styles.rightContainer}>

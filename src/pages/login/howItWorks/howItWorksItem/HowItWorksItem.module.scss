@@ -3,39 +3,68 @@
 
 .component {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   margin-bottom: pxToRem(28);
 
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  @include mediaQuery(m, up) {
+    justify-content: unset;
+  }
 }
 
 .iconContainer {
   display: flex;
   align-items: center;
-  margin-right: 26px;
+  justify-content: center;
+  flex: 1;
+
+  @include mediaQuery(m, up) {
+    justify-content: flex-end;
+  }
 }
 
 .icon {
-  width: 34px;
-  height: 34px;
+  width: 18px;
+  height: 18px;
+
+  @include mediaQuery(m, up) {
+    width: 34px;
+    height: 34px;
+  }
 }
 
 .contentContainer {
   display: flex;
   flex-direction: column;
-  padding-right: 80px;
+  flex: 3;
+
+  @include mediaQuery(m, up) {
+    flex: 2;
+    margin-left: pxToRem(32);
+  }
 }
 
 .title {
   font-family: var(--font-family-airbnb-bd);
-  font-size: pxToRem(24);
+  font-size: pxToRem(18);
   margin-bottom: pxToRem(6);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(24);
+  }
 }
 
 .description {
   font-family: var(--font-family-airbnb-bdk);
-  font-size: pxToRem(14);
+  font-size: pxToRem(12);
   color: var(--primaryColorGray);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(14);
+  }
 }

@@ -58,7 +58,10 @@ const Updates = ({ addEmail }) => {
             <div className={styles.imageContainer}>
               <img src={NerjaImage} alt="Nerja" className={styles.image} />
               <img src={StarIcon} alt="review" className={styles.starIcon} />
-              <p className={styles.reviewTitle}>4.87</p>
+              <p className={styles.reviewScore}>4.87</p>
+              <p className={styles.reviewDescription}>
+                „Ideal for families and couples"
+              </p>
               <img src={BeachIcon} alt="beach" className={styles.beachIcon} />
               <img
                 src={CocktailIcon}

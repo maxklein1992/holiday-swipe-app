@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   margin-top: pxToRem(20);
+  padding: 20px 0;
   width: 100%;
   background-color: var(--primaryColorLightGray);
 
@@ -27,11 +28,11 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding-top: pxToRem(20);
   justify-content: center;
-  align-items: stretch;
+  align-items: flex-start;
 
   @include mediaQuery(s, up) {
+    justify-content: flex-start;
     padding-top: pxToRem(40);
   }
 }
@@ -39,8 +40,11 @@
 .header {
   font-family: var(--font-family-airbnb-bd);
   font-size: pxToRem(14);
+  text-align: center;
+  width: 100%;
 
   @include mediaQuery(s, up) {
+    text-align: unset;
     font-size: pxToRem(18);
     margin-bottom: pxToRem(20);
   }
@@ -55,6 +59,8 @@
   flex-direction: column;
   margin-top: pxToRem(20);
   align-items: center;
+  justify-content: center;
+  width: 100%;
 
   @include mediaQuery(s, up) {
     flex-direction: row;
@@ -125,7 +131,7 @@
   }
 }
 
-.reviewTitle {
+.reviewScore {
   position: absolute;
   top: pxToRem(20);
   right: pxToRem(23);
@@ -133,6 +139,22 @@
   height: pxToRem(14);
   font-weight: bold;
   font-size: pxToRem(10);
+  color: var(--primaryColorWhite);
+  text-shadow: 1px 1px 1px black;
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(12);
+  }
+}
+
+.reviewDescription {
+  position: absolute;
+  text-align: end;
+  top: pxToRem(40);
+  right: pxToRem(10);
+  width: pxToRem(130);
+  font-size: pxToRem(10);
+  font-weight: bold;
   color: var(--primaryColorWhite);
   text-shadow: 1px 1px 1px black;
 

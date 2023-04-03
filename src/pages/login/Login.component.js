@@ -69,7 +69,7 @@ const Login = ({ isAuthenticated, authLoading }) => {
       <FrontPage backgroundImage={backgroundImage} />
       <Introduction />
       <Updates />
-      {/* <HowItWorks /> */}
+      <HowItWorks />
       {/* <GameTypesOverview /> */}
     </div>
   );
