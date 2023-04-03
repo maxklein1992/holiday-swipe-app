@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 
 import Container from "../../../elements/container";
 import Input from "../../../elements/input";
-import Button from "../../../elements/input";
+import Button from "../../../elements/button";
 import styles from "./Updates.module.scss";
 import NerjaImage from "../../../assets/images/nerja.png";
 import SunBehindCloudIcon from "../../../assets/icons/sunBehindCloud.png";
 import BeachIcon from "../../../assets/icons/beach.png";
 import CocktailIcon from "../../../assets/icons/cocktail.png";
 import StarIcon from "../../../assets/icons/star.png";
-import * as subscribeActions from "../../redux/actions/subscribe";
+import * as subscribeActions from "../../../redux/actions/subscribe";
 
 const Updates = ({ addEmail }) => {
   const [signupIsSubmitting, setSignupIsSubmitting] = React.useState(false);
@@ -19,6 +19,7 @@ const Updates = ({ addEmail }) => {
   const submitSignup = async ({ email }) => {
     setSignupIsSubmitting(true);
     const response = await addEmail({ email });
+    console.log(response, "reponse");
     if (response) {
       setEmail("");
       setSignupIsSubmitting(false);
@@ -31,7 +32,9 @@ const Updates = ({ addEmail }) => {
       <Container>
         <div className={styles.contentContainer}>
           <div className={styles.subscribeContainer}>
-            <p className={styles.header}>Subscribe To Announcements</p>
+            <p className={styles.header}>
+              Subscribe to Announcements of New Features
+            </p>
             <div className={styles.signupContainer}>
               <Input
                 placeholder="Enter your email here..."
@@ -43,8 +46,9 @@ const Updates = ({ addEmail }) => {
                 onClick={() => submitSignup({ email: email })}
                 variant="primary"
                 disabled={!email}
-                size="big"
+                size="small"
                 loading={signupIsSubmitting}
+                className={styles.button}
               >
                 Sign up
               </Button>
@@ -79,6 +83,9 @@ const Updates = ({ addEmail }) => {
   );
 };
 
-export default connect((dispatch) => ({
-  addEmail: ({ email }) => dispatch(subscribeActions.addEmail({ email })),
-}))(Updates);
+export default connect(
+  (state) => ({}),
+  (dispatch) => ({
+    addEmail: ({ email }) => dispatch(subscribeActions.addEmail({ email })),
+  })
+)(Updates);

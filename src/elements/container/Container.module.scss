@@ -1,24 +1,25 @@
 @import "../../styles/mediaQuery";
 
 .container {
-  margin: 0 16px;
+  padding: 0 16px;
   position: relative;
+  width: 100%;
 
   @include mediaQuery(s, only) {
-    margin: 0 24px;
+    padding: 0 24px;
   }
 
   @include mediaQuery(m, only) {
-    margin: 0 auto;
+    padding: 0 auto;
     max-width: 960px;
   }
 
   @include mediaQuery(l, only) {
-    margin: 0 80px;
+    padding: 0 80px;
   }
 
   @include mediaQuery(xl, only) {
-    margin: 0 auto;
+    padding: 0 auto;
     max-width: 1288px;
   }
 }

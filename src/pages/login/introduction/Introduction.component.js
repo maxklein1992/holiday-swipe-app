@@ -11,8 +11,8 @@ const Introduction = () => {
         <p className={styles.header}>
           Best and easiest way to find your holiday
         </p>
-        <p>
-          Holiday swap is a new travel guide platform to find your perfect
+        <p className={styles.description}>
+          Holiday Swipe is a new travel guide platform to find your perfect
           holiday for you and your travel partner.
         </p>
       </div>

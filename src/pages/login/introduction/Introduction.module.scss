@@ -4,11 +4,17 @@
 .component {
   display: flex;
   flex-direction: column;
-  width: 1000px;
-  padding-top: pxToRem(48);
+  padding-top: pxToRem(30);
 
   @include mediaQuery(s, up) {
-    padding-top: pxToRem(30);
+    padding-left: pxToRem(80);
+    padding-right: pxToRem(80);
+  }
+
+  @include mediaQuery(l, up) {
+    padding-left: 0;
+    padding-right: 0;
+    width: 1000px;
   }
 }
 
@@ -16,7 +22,7 @@
   font-family: var(--font-family-airbnb-bd);
   text-transform: uppercase;
   color: var(--primaryColorGray);
-  font-size: pxToRem(14);
+  font-size: pxToRem(12);
 
   @include mediaQuery(m, up) {
     font-size: pxToRem(18);
@@ -25,10 +31,19 @@
 
 .header {
   font-family: var(--font-family-airbnb-bd);
-  font-size: pxToRem(18);
+  font-size: pxToRem(16);
   margin-bottom: pxToRem(20);
 
   @include mediaQuery(m, up) {
     font-size: pxToRem(30);
+  }
+}
+
+.description {
+  font-family: var(--font-family-airbnb-bdk);
+  font-size: pxToRem(12);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(18);
   }
 }

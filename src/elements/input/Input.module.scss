@@ -1,17 +1,23 @@
 @import "../../styles/pxToRem";
+@import "../../styles/mediaQuery";
 
 .input {
   display: flex;
-  width: pxToRem(250);
-  height: pxToRem(50);
-  padding: 16px 10px;
+  width: pxToRem(220);
+  height: pxToRem(40);
+  padding: 12px 10px;
   border: 1px solid var(--primaryColorGray);
-  font-size: pxToRem(14);
+  font-size: pxToRem(12);
   border-radius: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font-family-airbnb-bdk);
   resize: none;
+
+  @include mediaQuery(s, up) {
+    font-size: pxToRem(14);
+    height: pxToRem(50);
+    width: pxToRem(250);
+    padding: 16px 10px;
+  }
 
   /* Size variants */
   .big {
