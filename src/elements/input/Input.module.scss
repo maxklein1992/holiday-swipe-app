@@ -3,7 +3,7 @@
 .input {
   display: flex;
   width: pxToRem(250);
-  height: pxToRem(100);
+  height: pxToRem(50);
   padding: 16px 10px;
   border: 1px solid var(--primaryColorGray);
   font-size: pxToRem(14);
@@ -16,6 +16,7 @@
   /* Size variants */
   .big {
     width: pxToRem(500);
+    height: pxToRem(100);
     padding: 22px 20px;
     font-size: pxToRem(16);
   }

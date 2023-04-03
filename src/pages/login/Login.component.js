@@ -3,16 +3,11 @@ import { useDispatch, useSelector, connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { dashboard } from "../../constants/paths";
-import GameTypeCard from "../../components/gameTypeCard";
 import styles from "./Login.module.scss";
 import * as authActions from "../../redux/actions/auth";
-import GameTypes from "../../constants/gameTypes";
-import Button from "../../elements/button";
-import Container from "../../elements/container";
-import Header from "../../components/header/Header.component";
 import FrontPage from "./frontPage/FrontPage.component";
+import Introduction from "./introduction";
 import GameTypesOverview from "./gameTypesOverview/GameTypesOverview.component";
-
 import PositanoImage from "../../assets/images/positano.png";
 import FlorianopolisImage from "../../assets/images/florianopolis.png";
 import FlorianopolisImage2 from "../../assets/images/florianopolis2.png";
@@ -24,6 +19,7 @@ import ItalyImage2 from "../../assets/images/italy2.png";
 import CoupleKissImage from "../../assets/images/couple_kiss.png";
 import { getRandomNumber } from "../../utils/randomNumber";
 import HowItWorks from "./howItWorks";
+import Updates from "./updates";
 
 const Login = ({ isAuthenticated, authLoading }) => {
   const [backgroundImage, setBackgroundImage] = React.useState(null);
@@ -71,8 +67,10 @@ const Login = ({ isAuthenticated, authLoading }) => {
   return (
     <div className={styles.component}>
       <FrontPage backgroundImage={backgroundImage} />
-      <GameTypesOverview />
+      <Introduction />
+      <Updates />
       <HowItWorks />
+      {/* <GameTypesOverview /> */}
     </div>
   );
 };

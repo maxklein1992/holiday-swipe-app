@@ -1,0 +1,157 @@
+@import "../../../styles/pxToRem";
+@import "../../../styles/mediaQuery";
+
+.component {
+  display: flex;
+  justify-content: space-between;
+  margin-top: pxToRem(50);
+  width: 100%;
+  height: 350px;
+  background-color: var(--primaryColorLightGray);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  width: pxToRem(1000);
+}
+
+.subscribeContainer {
+  display: flex;
+  flex-direction: column;
+  width: pxToRem(500);
+  padding-top: pxToRem(40);
+  padding-left: pxToRem(10);
+}
+
+.signupContainer {
+  display: flex;
+  margin-top: pxToRem(60);
+}
+
+.header {
+  font-family: var(--font-family-airbnb-bd);
+  font-size: pxToRem(18);
+  margin-bottom: pxToRem(20);
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(24);
+  }
+}
+
+.rightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  width: 400px;
+  height: 350px;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+  width: 280px;
+  height: 280px;
+  border-radius: 16px;
+}
+
+.name {
+  position: absolute;
+  bottom: pxToRem(40);
+  left: pxToRem(10);
+  font-size: pxToRem(20);
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.starIcon {
+  position: absolute;
+  top: pxToRem(21);
+  right: pxToRem(40);
+  width: pxToRem(12);
+  height: pxToRem(12);
+}
+
+.reviewTitle {
+  position: absolute;
+  top: pxToRem(20);
+  right: pxToRem(23);
+  width: pxToRem(14);
+  height: pxToRem(14);
+  font-weight: bold;
+  font-size: pxToRem(12);
+  color: var(--primaryColorWhite);
+  text-shadow: 1px 1px 1px black;
+}
+
+.temperatureMonth {
+  position: absolute;
+  bottom: pxToRem(20);
+  left: pxToRem(10);
+  font-size: pxToRem(12);
+  font-weight: bold;
+  color: var(--primaryColorRed);
+  text-shadow: 1px 1px 1px black;
+}
+
+.airport {
+  position: absolute;
+  bottom: pxToRem(36);
+  right: pxToRem(10);
+  font-size: pxToRem(12);
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.flights {
+  position: absolute;
+  bottom: pxToRem(20);
+  right: pxToRem(10);
+  font-size: pxToRem(12);
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.sunBehindCloudIcon {
+  position: absolute;
+  bottom: pxToRem(60);
+  left: pxToRem(10);
+  width: 30px;
+  height: 30px;
+}
+
+.beachIcon {
+  position: absolute;
+  top: pxToRem(20);
+  left: pxToRem(10);
+  width: 25px;
+  height: 25px;
+}
+
+.cocktailIcon {
+  position: absolute;
+  top: pxToRem(50);
+  left: pxToRem(14);
+  width: 20px;
+  height: 20px;
+}
+
+.temperatureNow {
+  position: absolute;
+  bottom: pxToRem(66);
+  left: pxToRem(48);
+  font-size: pxToRem(12);
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
