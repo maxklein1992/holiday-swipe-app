@@ -12,7 +12,7 @@ const Introduction = () => {
           Best and easiest way to find your holiday
         </p>
         <p className={styles.description}>
-          Holiday Swipe is a new travel guide platform to find your perfect
+          Holiday Swipe is a new travel guide platform to find the perfect
           holiday for you and your travel partner.
         </p>
       </div>

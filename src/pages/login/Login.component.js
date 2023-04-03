@@ -70,7 +70,7 @@ const Login = ({ isAuthenticated, authLoading }) => {
       <Introduction />
       <Updates />
       <HowItWorks />
-      {/* <GameTypesOverview /> */}
+      <GameTypesOverview />
     </div>
   );
 };
