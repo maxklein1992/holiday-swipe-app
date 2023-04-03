@@ -123,7 +123,11 @@
   padding: 30px 60px;
 
   @include mediaQuery(m, up) {
-    padding: 30px 150px;
+    padding: 30px 140px;
+  }
+
+  @include mediaQuery(l, up) {
+    padding: 30px 220px;
   }
 }
 

@@ -26,7 +26,7 @@ const HowItWorks = () => {
           <div className={styles.rightContainer}>
             <div className={styles.imageContainer}>
               <img src={PugliaImage} alt="Puglia" className={styles.image} />
-              <p className={styles.name}>Puglia</p>
+              <p className={styles.name}>Puglia, Italy</p>
             </div>
             <div className={styles.buttonsContainer}>
               <img src={AnimatedHeartIcon} alt="heart" className={styles.gif} />
