@@ -3,23 +3,30 @@
 .container {
   padding: 0 16px;
   position: relative;
+  display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 
   @include mediaQuery(s, only) {
-    padding: 0 24px;
+    padding: 0 48px;
   }
 
   @include mediaQuery(m, only) {
-    padding: 0 auto;
+    padding: 0;
+    margin: 0 48px;
     max-width: 960px;
   }
 
   @include mediaQuery(l, only) {
-    padding: 0 80px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 960px;
   }
 
   @include mediaQuery(xl, only) {
-    padding: 0 auto;
+    padding: 0;
     max-width: 1288px;
+    margin: 0 auto;
   }
 }

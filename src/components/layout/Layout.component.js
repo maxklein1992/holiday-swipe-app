@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../header";
 
-import styles from "./Layout.module.scss";
 import Container from "../../elements/container";
 
 const Layout = ({ children }) => {

@@ -3,6 +3,8 @@
 
 .input {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: pxToRem(220);
   height: pxToRem(40);
   padding: 12px 10px;
@@ -12,11 +14,11 @@
   font-family: var(--font-family-airbnb-bdk);
   resize: none;
 
-  @include mediaQuery(s, up) {
-    font-size: pxToRem(14);
-    height: pxToRem(50);
+  @include mediaQuery(m, up) {
+    height: pxToRem(70);
     width: pxToRem(250);
-    padding: 16px 10px;
+    padding: 24px 16px;
+    font-size: pxToRem(14);
   }
 
   /* Size variants */

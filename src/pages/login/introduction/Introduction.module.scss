@@ -5,17 +5,7 @@
   display: flex;
   flex-direction: column;
   padding-top: pxToRem(30);
-
-  @include mediaQuery(s, up) {
-    padding-left: pxToRem(80);
-    padding-right: pxToRem(80);
-  }
-
-  @include mediaQuery(l, up) {
-    padding-left: 0;
-    padding-right: 0;
-    width: 1000px;
-  }
+  width: 100%;
 }
 
 .subHeader {

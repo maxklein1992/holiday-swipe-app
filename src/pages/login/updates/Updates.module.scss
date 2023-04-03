@@ -3,8 +3,9 @@
 
 .component {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: pxToRem(20);
+  width: 100%;
   background-color: var(--primaryColorLightGray);
 
   @include mediaQuery(s, up) {
@@ -24,10 +25,9 @@
 
 .subscribeContainer {
   display: flex;
+  flex: 1;
   flex-direction: column;
   padding-top: pxToRem(20);
-  min-width: 100%;
-
   justify-content: center;
   align-items: stretch;
 
@@ -41,8 +41,12 @@
   font-size: pxToRem(14);
 
   @include mediaQuery(s, up) {
-    font-size: pxToRem(24);
+    font-size: pxToRem(18);
     margin-bottom: pxToRem(20);
+  }
+
+  @include mediaQuery(m, up) {
+    font-size: pxToRem(24);
   }
 }
 
@@ -72,11 +76,9 @@
 .rightContainer {
   display: flex;
   justify-content: center;
+  flex: 1;
   align-items: center;
   flex-direction: column;
-  flex-grow: 1;
-  flex-basis: 0;
-  min-width: 0;
   height: 350px;
 }
 
@@ -90,7 +92,7 @@
   height: 240px;
   border-radius: 16px;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     width: 280px;
     height: 280px;
   }
@@ -105,7 +107,7 @@
   color: white;
   text-shadow: 1px 1px 1px black;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     font-size: pxToRem(20);
   }
 }
@@ -117,7 +119,7 @@
   width: pxToRem(10);
   height: pxToRem(10);
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     width: pxToRem(12);
     height: pxToRem(12);
   }
@@ -134,7 +136,7 @@
   color: var(--primaryColorWhite);
   text-shadow: 1px 1px 1px black;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     font-size: pxToRem(12);
   }
 }
@@ -148,7 +150,7 @@
   color: var(--primaryColorRed);
   text-shadow: 1px 1px 1px black;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     font-size: pxToRem(12);
   }
 }
@@ -162,7 +164,7 @@
   color: white;
   text-shadow: 1px 1px 1px black;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     font-size: pxToRem(12);
   }
 }
@@ -176,7 +178,7 @@
   color: white;
   text-shadow: 1px 1px 1px black;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     font-size: pxToRem(12);
   }
 }
@@ -188,7 +190,7 @@
   width: 22px;
   height: 22px;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     width: 30px;
     height: 30px;
   }
@@ -201,7 +203,7 @@
   width: 22px;
   height: 22px;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     width: 25px;
     height: 25px;
   }
@@ -214,7 +216,7 @@
   width: 18px;
   height: 18px;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     width: 20px;
     height: 20px;
   }
@@ -229,7 +231,7 @@
   color: white;
   text-shadow: 1px 1px 1px black;
 
-  @include mediaQuery(s, up) {
+  @include mediaQuery(m, up) {
     font-size: pxToRem(12);
   }
 }

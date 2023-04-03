@@ -15,8 +15,7 @@
   font-family: var(--font-family-airbnb-bd);
 
   @include mediaQuery(s, up) {
-    font-size: pxToRem(16);
-    padding: 15px 40px;
+    padding: 15px 25px;
   }
   @include mediaQuery(m, up) {
     font-size: pxToRem(18);
