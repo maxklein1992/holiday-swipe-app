@@ -9,7 +9,13 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
   font-size: pxToRem(16);
   scroll-behavior: smooth;
   font-family: var(--font-family-bold);
