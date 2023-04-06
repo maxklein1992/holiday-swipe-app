@@ -15,7 +15,6 @@
 }
 
 .subHeader {
-  font-family: var(--font-family-airbnb-bd);
   text-transform: uppercase;
   color: var(--primaryColorGray);
   font-size: pxToRem(12);
@@ -26,7 +25,6 @@
 }
 
 .header {
-  font-family: var(--font-family-airbnb-bd);
   font-size: pxToRem(16);
   margin-bottom: pxToRem(20);
 
@@ -36,7 +34,7 @@
 }
 
 .description {
-  font-family: var(--font-family-airbnb-bdk);
+  font-family: var(--font-family-regular);
   font-size: pxToRem(12);
 
   @include mediaQuery(m, up) {

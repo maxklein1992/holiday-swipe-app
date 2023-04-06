@@ -50,7 +50,6 @@
 }
 
 .title {
-  font-family: var(--font-family-airbnb-bd);
   font-size: pxToRem(18);
   margin-bottom: pxToRem(6);
 
@@ -60,7 +59,7 @@
 }
 
 .description {
-  font-family: var(--font-family-airbnb-bdk);
+  font-family: var(--font-family-regular);
   font-size: pxToRem(12);
   color: var(--primaryColorGray);
 

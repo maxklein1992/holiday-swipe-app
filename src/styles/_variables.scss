@@ -1,0 +1,36 @@
+@import "./fonts";
+
+:root {
+  // PRIMARY COLORS
+  --primaryColorGray: #878787;
+  --primaryColorGreen: #007b86;
+
+  --secondaryColorGray: rgb(128, 128, 128);
+  --secondaryColorGreen: #0092a0;
+
+  //OLD
+  --primaryColorBlue: #2356d1;
+  --primaryColorWhite: white;
+  --primaryColorBlack: black;
+  //--primaryColorGray: #ccc;
+  //--primaryColorGreen: #47d073;
+  --primaryColorLightGreen: #9fe870;
+  --primaryColorLightGray: #f7f7f7;
+  --primaryColorOrange: #f5a623;
+  --primaryColorRed: #ff385c;
+  --primaryColorPurple: #5c16c5;
+
+  // SECONDARY COLORS
+  --secondaryColorLightGreen: #80e142;
+  --secondaryColorLightGray: lightgray;
+  --secondaryColorRed: #e31c5f;
+  --secondaryColorPurple: #772ce8;
+
+  // FONT FAMILY
+  --font-family-bold: "Airbnb-bold";
+  --font-family-regular: "Airbnb-regular";
+  --font-family-black: "Airbnb-black";
+  --font-family-light: "Airbnb-light";
+  --font-family-medium: "Airbnb-medium";
+  --font-family-extra-bold: "Airbnb-extra-bold";
+}

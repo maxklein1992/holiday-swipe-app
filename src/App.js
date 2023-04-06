@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import Routing from "./Routing";
 import store from "./redux/store";
 import "./styles/globals.scss";
+import "./styles/_variables.scss";
 import "./App.scss";
 
 const App = () => {

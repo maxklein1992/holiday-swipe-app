@@ -11,7 +11,7 @@
   border: 1px solid var(--primaryColorGray);
   font-size: pxToRem(12);
   border-radius: 8px;
-  font-family: var(--font-family-airbnb-bdk);
+  font-family: var(--font-family-regular);
   resize: none;
 
   @include mediaQuery(m, up) {

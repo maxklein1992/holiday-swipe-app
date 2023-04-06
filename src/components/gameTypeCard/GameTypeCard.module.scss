@@ -62,7 +62,7 @@
   font-weight: bold;
   color: var(--primaryColorBlack);
   font-size: pxToRem(16);
-  font-family: var(--font-family-airbnb-bdk);
+  font-family: var(--font-family-regular);
 
   @include mediaQuery(m, up) {
     font-size: pxToRem(18);
@@ -74,7 +74,7 @@
   margin-top: pxToRem(4);
   text-align: left;
   font-size: pxToRem(12);
-  font-family: var(--font-family-airbnb-bdk);
+  font-family: var(--font-family-regular);
 
   @include mediaQuery(m, up) {
     font-size: pxToRem(14);
