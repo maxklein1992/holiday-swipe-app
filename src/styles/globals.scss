@@ -1,5 +1,38 @@
 @import "./variables";
+@import "./pxToRem";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
 
 body {
+  font-size: pxToRem(16);
+  scroll-behavior: smooth;
   font-family: var(--font-family-bold);
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-bold);
+}
+
+p {
+  font-family: var(--font-family-bold);
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }

@@ -74,7 +74,6 @@
   z-index: 1;
   font-size: pxToRem(18);
   vertical-align: center;
-  text-decoration: none;
 
   @include mediaQuery(s, up) {
     font-size: pxToRem(30);
